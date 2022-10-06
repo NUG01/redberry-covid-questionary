@@ -1,15 +1,53 @@
 <template>
-  <the-header :number=1></the-header>
+<div>
+  <basic-header :number=1 :leftHide=true :rightHide=false :leftLink="'/'" :rightLink="'covid-questions'">
+  <div class="flex items-start justify-between">
+    <form class="flex flex-col w-[100%] gap-[4.7rem] mt-[4.2rem]">
+      <div class="flex flex-col w-[80%] gap-[1.2rem]">
+        <label for="name" class="text-[2.2rem] font-bold text-[#232323]">სახელი*</label>
+        <input type="text" name="name" id="name" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid" placeholder="იოსებ">
+      </div>
+      <div class="flex flex-col w-[80%] gap-[1.2rem]">
+        <label for="surname" class="text-[2.2rem] font-bold text-[#232323]">გვარი*</label>
+        <input type="text" name="surname" id="surname" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid" placeholder="ჯუღაშვილი">
+      </div>
+      <div class="flex flex-col w-[80%] gap-[1.2rem]">
+        <label for="email" class="text-[2.2rem] font-bold text-[#232323]">მეილი*</label>
+        <input type="email" name="email" id="email" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid" placeholder="fbi@redberry.ge">
+      </div>
+      <div class="mt-[11rem] text-[1.6rem] font-bold text-[#626262] inline-block">
+        <hr/>
+       <p>*-ით მონიშნული ველების შევსება<br> სავალდებულოა</p>
+      </div>
+    </form>
+    <img src="src/assets/identify.png">
+  </div>
+  </basic-header>
+</div>
 </template>
 
 
 <script>
-import TheHeader from '../components/TheHeader.vue';
+import BasicHeader from '@/components/BasicHeader.vue';
 export default {
-  name:"identification.page",
-  components:{TheHeader},
+  name:"identification",
+  components:{BasicHeader},
   
 }
 </script>
+
+<style scoped>
+ input::placeholder {
+            font-weight: 400;
+            font-size: 1.8rem;
+            color: #232323;
+        }
+hr{
+  margin-bottom: 2rem;
+  width: 40%;
+  height: 0.8px;
+  background-color: black;
+}
+</style>
 
 

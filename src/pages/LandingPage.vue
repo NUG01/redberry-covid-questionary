@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import TheLogo from '../components/svg/TheLogo.vue';
+import TheLogo from '@/components/svg/TheLogo.vue';
 import { ref } from "vue";
 export default {
-  name:"start.page",
+  name:"landing",
   components:{TheLogo},
   setup(){
      const shadowText=ref(false);

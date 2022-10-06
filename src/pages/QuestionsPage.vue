@@ -1,13 +1,13 @@
 <template>
-  <the-header :number=2></the-header>
+  <basic-header :number=2 :leftHide=false :rightHide=false :leftLink="'identification'" :rightLink="'vaccination'"></basic-header>
 </template>
 
 
 <script>
-import TheHeader from '../components/TheHeader.vue';
+import BasicHeader from '@/components/BasicHeader.vue';
 export default {
-  name: "questions.page",
-  components:{TheHeader},
+  name: "questions",
+  components:{BasicHeader},
   
 }
 </script>

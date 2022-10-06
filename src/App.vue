@@ -1,5 +1,9 @@
 <template>
-  <router-view class="bg-[#EAEAEA]"></router-view>
+  <router-view class="bg-[#EAEAEA]" v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </router-view>
 </template>
 
 
@@ -12,14 +16,20 @@
 }
 html{
   font-size: 62.5%;
+  background-color: #EAEAEA;
 }
+
+
+.route-enter-active,
+.route-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.route-enter-from,
+.route-leave-to {
+  opacity: 0.5;
+}
+
+
 </style>
 
-
-<script>
-
-export default {
- 
-  
-}
-</script>
