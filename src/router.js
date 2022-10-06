@@ -1,22 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import StartPage from './pages/StartPage.vue';
-import FirstPage from './pages/FirstPage.vue';
-import SecondPage from './pages/SecondPage.vue';
-import ThirdPage from './pages/ThirdPage.vue';
-import FourthPage from './pages/FourthPage.vue';
+import IdentifyPage from './pages/IdentifyPage.vue';
+import QuestionsPage from './pages/QuestionsPage.vue';
+import VaccinationPage from './pages/VaccinationPage.vue';
+import AdvicesPage from './pages/AdvicesPage.vue';
 import ThankfulPage from './pages/ThankfulPage.vue';
 
 const router = createRouter({
   history : createWebHistory(),
   routes: [
-    {path: '/', redirect: '/start'},
-    {path: '/start', component: StartPage},
-    {path: '/identification', component: FirstPage},
-    {path: '/covid-questions', component: SecondPage},
-    {path: '/vaccination', component: ThirdPage},
-    {path: '/advices', component: FourthPage},
-    {path: '/thanks', component: ThankfulPage},
-        ],
+    {path: '/', redirect: '/start', name:'main'},
+    {path: '/start', component: StartPage, name:'start'},
+    {path: '/identification', component: IdentifyPage, name:'identification'},
+    {path: '/covid-questions', component: QuestionsPage, name:'covid-questions'},
+    {path: '/vaccination', component: VaccinationPage, name:'vaccination'},
+    {path: '/advices', component: AdvicesPage, name:'advices'},
+    {path: '/thanks', component: ThankfulPage, name:'thanks'},
+    ],
 });
 
 
