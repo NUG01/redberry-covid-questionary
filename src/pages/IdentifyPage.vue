@@ -6,7 +6,7 @@
 <script>
 import TheHeader from '../components/TheHeader.vue';
 export default {
-  name:"identification",
+  name:"identification.page",
   components:{TheHeader},
   
 }

@@ -18,6 +18,7 @@
 import TheLogo from '../components/svg/TheLogo.vue';
 import { ref } from "vue";
 export default {
+  name:"start.page",
   components:{TheLogo},
   setup(){
      const shadowText=ref(false);

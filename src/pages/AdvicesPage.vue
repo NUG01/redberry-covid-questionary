@@ -6,7 +6,7 @@
 <script>
 import TheHeader from '../components/TheHeader.vue';
 export default {
-  name: "advices",
+  name: "advices.page",
   components:{TheHeader},
   
 }
