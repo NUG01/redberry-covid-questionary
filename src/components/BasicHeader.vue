@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import RedberryLogo from './svg/RedberryLogo.vue';
-import LeftArrow from './svg/LeftArrow.vue';
-import RightArrow from './svg/RightArrow.vue';
+import RedberryLogo from '@/components/svg/RedberryLogo.vue';
+import LeftArrow from '@/components/svg/LeftArrow.vue';
+import RightArrow from '@/components/svg/RightArrow.vue';
 import { ref } from "vue";
 export default {
   name:"BasicHeader",
