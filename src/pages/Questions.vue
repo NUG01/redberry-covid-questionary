@@ -70,7 +70,7 @@
 <script>
 import BasicHeader from '@/components/BasicHeader.vue';
 export default {
-  name: "questions",
+  name: "Questions",
   components:{BasicHeader},
   
 }

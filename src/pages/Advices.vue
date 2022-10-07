@@ -1,12 +1,12 @@
 <template>
-  <basic-header :number=3 :leftHide=false :rightHide=false :leftLink="'covid-questions'" :rightLink="'advices'"></basic-header>
+  <basic-header :number=4 :leftHide=false :rightHide=true :leftLink="'vaccination'" :rightLink="'/'"></basic-header>
 </template>
 
 
 <script>
 import BasicHeader from '@/components/BasicHeader.vue';
 export default {
-  name: "vaccination",
+  name: "Advices",
   components:{BasicHeader},
   
 }

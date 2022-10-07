@@ -32,7 +32,7 @@
 import BasicHeader from '@/components/BasicHeader.vue';
 import { ref } from "vue";
 export default {
-  name:"identification",
+  name:"Identification",
   components:{BasicHeader},
   setup(){
      const name=ref('');
