@@ -1,5 +1,5 @@
 <template>
-  <basic-header :number=4 :leftHide=false :rightHide=true :leftLink="'vaccination'" :rightLink="'/'"></basic-header>
+  <basic-header :number=4 :leftHide=false :rightHide=true :leftLink="'vaccination'" :rightLink="''"></basic-header>
 </template>
 
 
