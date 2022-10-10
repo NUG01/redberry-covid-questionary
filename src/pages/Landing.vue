@@ -1,9 +1,9 @@
 <template>
-<div class="flex items-start justify-center h-[100vh] w-[100vw]">
+<section class="flex items-start justify-center h-[100vh] w-[100vw]">
   <div class="flex flex-col items-center">
 <the-logo></the-logo>
 <div class="overflow-hidden mt-[10rem]" @mouseover="shadowTrue" @mouseleave="shadowFalse">
-  <div class="textAnim font-bold text-[#232323]">
+  <div class="textAnim font-bold text-[#232323] fontFam">
   <router-link to='/identification' :class="{shadow: shadowText}">
   <p data-text="კითხვარის" class="p1 z-10 relative text-center text-[3rem] tracking-wide mr-[3px]">კითხვარის</p>
   <p data-text="დაწყება" class="p2 z-10 relative text-center text-[3rem] tracking-wide">დაწყება</p>
@@ -11,7 +11,7 @@
   </div>
 </div>
   </div>
-</div>
+</section>
 </template>
 
 <script>
@@ -38,6 +38,7 @@ export default {
 
 
 <style scoped>
+
 .animation{
  animation: scaleDown 0.7s ease-in;
 }

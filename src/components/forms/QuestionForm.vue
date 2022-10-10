@@ -17,14 +17,14 @@
       </div>
       </div>
       <div>
-      <p class="mb-[3rem]">თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი<br>რიცხვი და ანტისხეულების რაოდენობა*</p>
+      <p class="mb-[3rem]">თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</p>
       <div class="flex flex-col gap-[2.5rem] ml-[2rem]">
         <input-cmp name="numberDate" type="text" placeholder="რიცხვი"></input-cmp>
         <input-cmp name="antiBody" type="text" placeholder="ანტისხეულების რაოდენობა"></input-cmp>
       </div>
       </div>
     <div>
-      <p class="mb-[3rem]">მიუთითე მიახლოებითი პერიოდი (დღე/თვე/წელი)<br>როდის გქონდა Covid-19*</p>
+      <p class="mb-[3rem]">მიუთითე მიახლოებითი პერიოდი<br>(დღე/თვე/წელი) როდის გქონდა Covid-19*</p>
       <div class="flex flex-col gap-[1rem] ml-[2rem]">
         <input-cmp name="date" type="text" placeholder="დდ/თთ/წწ"></input-cmp>
       </div>
@@ -49,6 +49,10 @@ export default {
 
 
 <style scoped>
+form{
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
  
 p{
   font-size: 2.2rem;

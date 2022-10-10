@@ -1,5 +1,5 @@
 <template>
-<div>
+<section>
   <basic-header :number=2 :leftHide=false :rightHide=false :leftLink="'identification'" :rightLink="'vaccination'">
 <div class="flex items-start justify-between">
     <question-form></question-form>
@@ -7,7 +7,7 @@
     <div class="absolute rectangle"></div>
   </div>
   </basic-header>
-</div>
+</section>
 </template>
 
 <script>

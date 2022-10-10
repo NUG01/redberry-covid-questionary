@@ -24,6 +24,10 @@ export default {
 
 
 <style scoped>
+form{
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
 
   input[type='text'], 
   input[type='email']

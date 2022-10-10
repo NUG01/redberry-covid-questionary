@@ -1,5 +1,5 @@
 <template>
-<div>
+<section>
   <basic-header :number=1 :leftHide=true :rightHide=false :leftLink="''" :rightLink="'covid-questions'">
   <div class="flex items-start justify-between">
     <identification-form></identification-form>
@@ -7,7 +7,7 @@
     <div class="absolute bg-[rgba(215,210,112,0.72)] w-[62rem] h-[7.5rem] top-[35%] left-[50%] rectangle"></div>
   </div>
   </basic-header>
-</div>
+</section>
 </template>
 
 

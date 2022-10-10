@@ -11,9 +11,9 @@
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">აირჩიე რა ეტაპზე ხარ*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" name="stage" id="stage1">პირველი დოზა და დარეგისრირებული ვარ მეორეზე</radio-cmp>
+        <radio-cmp type="radio" name="stage" id="stage1">პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</radio-cmp>
         <radio-cmp type="radio" name="stage" id="stage2">სრულიად აცრილი ვარ</radio-cmp>
-        <radio-cmp type="radio" name="stage" id="stage2">პირველი დოზა და არ დარეგისრირებულვარ მეორეზე</radio-cmp>
+        <radio-cmp type="radio" name="stage" id="stage2">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</radio-cmp>
       </div>
       </div>
      <vaccine-text></vaccine-text>
@@ -37,6 +37,10 @@ export default {
 
 
 <style scoped>
+form{
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
 p{
   font-size: 2.2rem;
   color:#232323;
