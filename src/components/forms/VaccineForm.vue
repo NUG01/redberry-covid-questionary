@@ -13,7 +13,7 @@
       <div class="flex flex-col gap-[1.1rem]">
         <radio-cmp type="radio" name="stage" id="stage1">პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</radio-cmp>
         <radio-cmp type="radio" name="stage" id="stage2">სრულიად აცრილი ვარ</radio-cmp>
-        <radio-cmp type="radio" name="stage" id="stage2">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</radio-cmp>
+        <radio-cmp type="radio" name="stage" id="stage3">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</radio-cmp>
       </div>
       </div>
      <vaccine-text></vaccine-text>

@@ -12,11 +12,11 @@
 
 
 <script>
-import { Field, Form } from 'vee-validate';
+import { Form } from 'vee-validate';
 import InputCmp from '@/components/inputs/Input.vue';
 export default {
   name:"IdentificationForm",
- components:{Field,Form,InputCmp},
+ components:{Form,InputCmp},
   setup(){
   }
 }

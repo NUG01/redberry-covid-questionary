@@ -1,6 +1,6 @@
-import mutations from "@/mutations.js"; 
-import actions from "@/actions.js"; 
-import getters from "@/getters.js"; 
+import mutations from "./getters.js"; 
+import actions from "./actions.js"; 
+import getters from "./mutations"; 
 
 export default{
   state(){
