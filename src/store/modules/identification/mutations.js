@@ -1,11 +1,17 @@
 export default {
   newName(state,payload){
-    state.name=payload.target.value;
+    state.name=payload;
   },
   newSurname(state,payload){
-    state.surname=payload.target.value;
+    state.surname=payload;
   },
   newEmail(state,payload){
-    state.email=payload.target.value;
+    state.email=payload;
+  },
+  newErr(state,payload){
+    state.nameErr=payload;
+  },
+  newErr2(state,payload){
+    state.nameErr2=payload;
   },
 };

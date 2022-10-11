@@ -7,10 +7,6 @@
     <img src="src/assets/identify.png">
     <div class="absolute bg-[rgba(215,210,112,0.72)] w-[62rem] h-[7.5rem] top-[35%] left-[50%] rectangle"></div>
   </div>
-  <div class="flex items-center justify-center gap-[12rem]">
-   <router-link to="''" class="hidden"><left-arrow></left-arrow></router-link>
-   <router-link to="covid-questions"><right-arrow></right-arrow></router-link>
-  </div>
   </basic-header>
 </section>
 </template>
@@ -19,14 +15,16 @@
 <script>
 import IdentificationForm from '@/components/forms/IdentificationForm.vue';
 import BasicHeader from '@/components/BasicHeader.vue';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';
 import { ref } from "vue";
 export default {
   name:"Identification",
-  components:{BasicHeader, IdentificationForm,LeftArrow,RightArrow}
+  components:{BasicHeader, IdentificationForm},
+  setup(){
+   //
+    }
+
+  }
   
-}
 </script>
 
 <style scoped>

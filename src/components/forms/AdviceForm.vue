@@ -51,6 +51,7 @@ export default {
   name:"AdvicesForm",
  components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp},
   setup(){
+    
   }
 }
 </script>

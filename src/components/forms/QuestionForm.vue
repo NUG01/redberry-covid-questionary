@@ -30,6 +30,10 @@
       </div>
       </div>
       </div>
+       <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
+   <router-link to="identification"><left-arrow></left-arrow></router-link>
+   <button type="submit"><right-arrow></right-arrow></button>
+  </div>
     </Form>
 </template>
 
@@ -38,9 +42,11 @@
 import { Form, Field } from 'vee-validate';
 import RadioCmp from '@/components/inputs/Radio.vue'; 
 import InputCmp from '@/components/inputs/Input.vue';
+import LeftArrow from '@/components/svg/LeftArrow.vue';
+import RightArrow from '@/components/svg/RightArrow.vue';
 export default {
   name:"QuestionForm",
- components:{Form,Field,RadioCmp,InputCmp},
+ components:{Form,Field,RadioCmp,InputCmp,LeftArrow,RightArrow},
   setup(){
   }
 }

@@ -6,10 +6,6 @@
     <img src="src/assets/vaccination.png">
     <div class="absolute rectangle"></div>
   </div>
-  <div class="flex items-center justify-center gap-[12rem]">
-   <router-link to="identification"><left-arrow></left-arrow></router-link>
-   <router-link to="vaccination"><right-arrow></right-arrow></router-link>
-  </div>
   </basic-header>
 </section>
 </template>
@@ -17,11 +13,9 @@
 <script>
 import BasicHeader from '@/components/BasicHeader.vue';
 import QuestionForm from '@/components/forms/QuestionForm.vue';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';
 export default {
   name: "Questions",
-  components:{BasicHeader,QuestionForm,RightArrow,LeftArrow},
+  components:{BasicHeader,QuestionForm},
   
 }
 </script>

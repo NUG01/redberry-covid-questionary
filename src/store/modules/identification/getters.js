@@ -8,4 +8,10 @@ export default {
   email(state){
     return state.email;
   },
+  nameErr(state){
+    return state.nameErr
+  },
+  nameErr2(state){
+    return state.nameErr2
+  },
 };

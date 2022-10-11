@@ -6,10 +6,6 @@
     <img class="mt-[7rem]" src="src/assets/bike.png">
     <div class="absolute w-[62rem] h-[7.5rem] top-[30%] left-[61%] rectangle"></div>
   </div>
-  <div class="flex items-center justify-center gap-[12rem]">
-   <router-link to="vaccination" class="hidden"><left-arrow></left-arrow></router-link>
-   <router-link class="hidden" to="'covid-questions'"><right-arrow></right-arrow></router-link>
-  </div>
   </basic-header>
 </section>
 </template>
@@ -18,11 +14,9 @@
 <script>
 import BasicHeader from '@/components/BasicHeader.vue';
 import AdviceForm from '@/components/forms/AdviceForm.vue';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';
 export default {
   name: "Advices",
-  components:{BasicHeader, AdviceForm,RightArrow,LeftArrow},
+  components:{BasicHeader, AdviceForm},
   
 }
 </script>

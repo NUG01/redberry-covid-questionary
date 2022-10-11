@@ -8,6 +8,8 @@ export default{
       name:'',
       surname:'',
       email:'',
+      nameErr:false,
+      nameErr2:false
     };
   },
   mutations: mutations,
