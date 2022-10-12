@@ -44,10 +44,12 @@ import RadioCmp from '@/components/inputs/Radio.vue';
 import InputCmp from '@/components/inputs/Input.vue';
 import LeftArrow from '@/components/svg/LeftArrow.vue';
 import RightArrow from '@/components/svg/RightArrow.vue';
+import { useStore } from 'vuex';
 export default {
   name:"QuestionForm",
  components:{Form,Field,RadioCmp,InputCmp,LeftArrow,RightArrow},
   setup(){
+    const store = useStore();
   }
 }
 </script>

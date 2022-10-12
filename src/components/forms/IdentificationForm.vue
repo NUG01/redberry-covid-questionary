@@ -1,9 +1,9 @@
 <template>
   <Form @submit="onSubmit" class="flex flex-col w-[100%] gap-[4.7rem] mt-[4.2rem]">
  
-  <input-cmp rules="required|min:3" name="name" type="text" placeholder="იოსებ" label="სახელი*"/>
-   <input-cmp rules="required|min:3" name="surname" type="text" placeholder="ჯუღაშვილი" label="გვარი*"/>
-   <input-cmp rules="required|email|redberry_email" name="email" type="email" placeholder="fbi@gmail.com" label="მეილი*"/>
+  <input-cmp @save-data="saveName" rules="required|min:3" name="name" type="text" placeholder="იოსებ" label="სახელი*"/>
+   <input-cmp @save-data="saveSurname" rules="required|min:3" name="surname" type="text" placeholder="ჯუღაშვილი" label="გვარი*"/>
+   <input-cmp @save-data="saveEmail" rules="required|email|redberry_email" name="email" type="email" placeholder="fbi@gmail.com" label="მეილი*"/>
     
     <div class="mt-[11rem] text-[1.6rem] font-bold text-[#959595] inline-block">
     <hr/>
@@ -25,8 +25,9 @@ import InputCmp from '@/components/inputs/Input.vue';
 import LeftArrow from '@/components/svg/LeftArrow.vue';
 import RightArrow from '@/components/svg/RightArrow.vue';
 import { useRouter } from 'vue-router'
-import { onMounted} from 'vue'
+import { onBeforeMount} from 'vue'
 export default {
+  emits:["save-data"],
   props:['emitInput'],
   name:"IdentificationForm",
  components:{Form,InputCmp,LeftArrow,RightArrow},
@@ -34,25 +35,36 @@ export default {
     const store = useStore();
     const router = useRouter();
 
-       onMounted((values) =>{
-        console.log('what')
+       onBeforeMount(() =>{
+      store.commit('newName',localStorage.getItem('name'));
+      store.commit('newSurname',localStorage.getItem('surname'));
+      store.commit('newEmail',localStorage.getItem('email'));
       });
-   
-
+        
+        function saveName(value){
+          localStorage.setItem('name', value)
+        }
+        function saveSurname(value){
+          localStorage.setItem('surname',value)
+        }
+        function saveEmail(value){
+          localStorage.setItem('email',value)
+        }
 
     
     
       function onSubmit(values){
-        console.log('submitted');
       store.commit('newName',values.name);
       store.commit('newSurname',values.surname);
       store.commit('newEmail',values.email);
-      console.log(store.getters.name,store.getters.surname,store.getters.email)
        return router.push('/covid-questions');
   
     }
     return{
-    onSubmit
+    onSubmit,
+    saveName,
+    saveSurname,
+    saveEmail
     }
   }
 }

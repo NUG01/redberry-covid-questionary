@@ -7,11 +7,5 @@ export default {
   },
   newEmail(state,payload){
     state.email=payload;
-  },
-  newErr(state,payload){
-    state.nameErr=payload;
-  },
-  newErr2(state,payload){
-    state.nameErr2=payload;
-  },
+  }
 };

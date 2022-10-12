@@ -2,7 +2,7 @@
 
   <div class="flex flex-col w-[80%]">
     <label :for="inputName" class="text-[2.2rem] font-bold text-[#232323] mb-[1.2rem]">{{ label }}</label>
-    <Field :rules="rules" :type="inputType" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid"/>
+    <Field @input="emit" :value="val" :rules="rules" :type="inputType" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid"/>
   <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" :name="inputName"/>
   </div>
 
@@ -11,14 +11,12 @@
 
 <script>
 import { Field, ErrorMessage } from 'vee-validate';
-import { ref} from 'vue';
+import { computed} from 'vue';
 export default {
-  props: ['name','type','placeholder', 'value','label', 'rules'],
+  props: ['name','type','placeholder','label', 'rules'],
   components:{Field, ErrorMessage},
-  emits:["emit-input"],
   setup(props,context){
 
-        const value=ref('');
 
         const rules=props.rules;
         const label=props.label;
@@ -26,11 +24,14 @@ export default {
         const inputType=props.type;
         const inputText=props.placeholder;
 
-        // const handleChange = (value) => {
-        //     context.emit("emit-input", value.target.value)
-        // }
 
-    return {inputName,inputType,inputText,modelValue:value.value,label,rules};
+        function emit(value){
+          context.emit('save-data', value.target.value)
+        }
+        
+        const val = computed((value) => localStorage.getItem(inputName));
+
+    return {inputName,inputType,inputText,label,rules,emit,val};
   }
 }
 </script>

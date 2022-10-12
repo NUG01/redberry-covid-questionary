@@ -7,9 +7,7 @@ export default{
     return{
       name:'',
       surname:'',
-      email:'',
-      nameErr:false,
-      nameErr2:false
+      email:''
     };
   },
   mutations: mutations,

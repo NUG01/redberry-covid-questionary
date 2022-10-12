@@ -11,11 +11,10 @@ export default {
   props: ['name','type','id','label'],
   components:{Field},
   setup(props){
-    const label=props.label;
+        const label=props.label;
         const inputName=props.name;
         const inputType=props.type
         const inputId=props.id
-console.log(inputType)
     return {inputName,inputType,inputId,label};
   }
 }
