@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
-import '@/style.css'
 import App from '@/App.vue'
 import router from '@/router.js';
 import store from '@/store/index.js';
+import '@/style.css'
+import "@/config/rules.js";
+import "@/config/messages.js";
 
 
 const app=createApp(App);

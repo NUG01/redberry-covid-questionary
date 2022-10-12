@@ -4,16 +4,16 @@
      <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">უკვე აცრილი ხარ?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" name="vaccine" id="vaccine1">კი</radio-cmp>
-        <radio-cmp type="radio" name="vaccine" id="vaccine2">არა</radio-cmp>
+        <radio-cmp type="radio" name="vaccine" id="vaccine1" label="კი"/>
+        <radio-cmp type="radio" name="vaccine" id="vaccine2" label="არა"/>
       </div>
       </div>
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">აირჩიე რა ეტაპზე ხარ*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" name="stage" id="stage1">პირველი დოზა და დარეგისტრირებული ვარ მეორეზე</radio-cmp>
-        <radio-cmp type="radio" name="stage" id="stage2">სრულიად აცრილი ვარ</radio-cmp>
-        <radio-cmp type="radio" name="stage" id="stage3">პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე</radio-cmp>
+        <radio-cmp type="radio" name="stage" id="stage1" label="პირველი დოზა და დარეგისტრირებული ვარ მეორეზე"/>
+        <radio-cmp type="radio" name="stage" id="stage2" label="სრულიად აცრილი ვარ"/>
+        <radio-cmp type="radio" name="stage" id="stage3" label="პირველი დოზა და არ დავრეგისტრირებულვარ მეორეზე"/>
       </div>
       </div>
      <vaccine-text></vaccine-text>

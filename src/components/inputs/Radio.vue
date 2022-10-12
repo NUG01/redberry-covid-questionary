@@ -1,21 +1,22 @@
 <template>
    <div class="flex gap-[2.2rem] items-center relative ml-[2rem]">
         <Field :type="inputType" :id="inputId" :name="inputName"/>
-        <label :for="inputId" class="radioLabel"><slot></slot></label>
+        <label :for="inputId" class="radioLabel">{{ label }}</label>
         </div>
 </template>
 
 <script>
 import { Field } from 'vee-validate';
 export default {
-  props: ['name','type','id'],
+  props: ['name','type','id','label'],
   components:{Field},
   setup(props){
+    const label=props.label;
         const inputName=props.name;
         const inputType=props.type
         const inputId=props.id
 console.log(inputType)
-    return {inputName,inputType,inputId};
+    return {inputName,inputType,inputId,label};
   }
 }
 </script>

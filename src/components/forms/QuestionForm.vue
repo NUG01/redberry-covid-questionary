@@ -4,29 +4,29 @@
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">გაქვს გადატანილი Covid-19?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" id="radio1" name="radio">კი</radio-cmp>
-        <radio-cmp type="radio" id="radio2" name="radio">არა</radio-cmp>
-        <radio-cmp type="radio" id="radio3" name="radio">ახლა მაქვს</radio-cmp>
+        <radio-cmp type="radio" id="radio1" name="radio" label="კი"/>
+        <radio-cmp type="radio" id="radio2" name="radio" label="არა"/>
+        <radio-cmp type="radio" id="radio3" name="radio" label="ახლა მაქვს"/>
        </div>
       </div>
      <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" id="anti-radio1" name="anti-radio">კი</radio-cmp>
-        <radio-cmp type="radio" id="anti-radio2" name="anti-radio">არა</radio-cmp>
+        <radio-cmp type="radio" id="anti-radio1" name="anti-radio" label="კი"/>
+        <radio-cmp type="radio" id="anti-radio2" name="anti-radio" label="არა"/>
       </div>
       </div>
       <div>
       <p class="mb-[3rem]">თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა*</p>
       <div class="flex flex-col gap-[2.5rem] ml-[2rem]">
-        <input-cmp name="numberDate" type="text" placeholder="რიცხვი"></input-cmp>
-        <input-cmp name="antiBody" type="text" placeholder="ანტისხეულების რაოდენობა"></input-cmp>
+        <input-cmp name="numberDate" type="text" placeholder="რიცხვი"/>
+        <input-cmp name="antiBody" type="text" placeholder="ანტისხეულების რაოდენობა"/>
       </div>
       </div>
     <div>
       <p class="mb-[3rem]">მიუთითე მიახლოებითი პერიოდი<br>(დღე/თვე/წელი) როდის გქონდა Covid-19*</p>
       <div class="flex flex-col gap-[1rem] ml-[2rem]">
-        <input-cmp name="date" type="text" placeholder="დდ/თთ/წწ"></input-cmp>
+        <input-cmp name="date" type="text" placeholder="დდ/თთ/წწ"/>
       </div>
       </div>
       </div>

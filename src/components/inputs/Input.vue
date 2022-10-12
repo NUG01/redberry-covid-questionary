@@ -1,41 +1,36 @@
 <template>
+
   <div class="flex flex-col w-[80%]">
-        <label :for="inputName" class="text-[2.2rem] font-bold text-[#232323] mb-[1.2rem]"><slot></slot></label>
-        <Field :type="inputType" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid"/>
-        <div v-if="inputName=='name'">
-        <p v-if="!comp1.value" class="error">სახელის შეყვანა აუცილებელია</p>
-        <p v-if="comp2.value" class="error">სახელი უნდა იყოს არანაკლებ 2 სიმბოლოსი</p>
-        </div>
-      </div>
+    <label :for="inputName" class="text-[2.2rem] font-bold text-[#232323] mb-[1.2rem]">{{ label }}</label>
+    <Field :rules="rules" :type="inputType" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid"/>
+  <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" :name="inputName"/>
+  </div>
+
 </template>
 
 
 <script>
-import { Field } from 'vee-validate';
-import { useStore } from 'vuex'
-import { computed } from 'vue'
-import { ref } from 'vue'
+import { Field, ErrorMessage } from 'vee-validate';
+import { ref} from 'vue';
 export default {
-  props: ['name','type','placeholder'],
-  components:{Field},
-  emits:["submitData"],
-  setup(props){
-    const store = useStore();
+  props: ['name','type','placeholder', 'value','label', 'rules'],
+  components:{Field, ErrorMessage},
+  emits:["emit-input"],
+  setup(props,context){
 
-    const comp1=computed(function(){
-      return store.getters.nameErr
-    })
-    const comp2=computed(function(){
-      return store.getters.nameErr2
-    })
+        const value=ref('');
 
+        const rules=props.rules;
+        const label=props.label;
         const inputName=props.name;
         const inputType=props.type;
         const inputText=props.placeholder;
 
-       console.log(comp1, comp2.value)
+        // const handleChange = (value) => {
+        //     context.emit("emit-input", value.target.value)
+        // }
 
-    return {inputName,inputType,inputText,comp1,comp2};
+    return {inputName,inputType,inputText,modelValue:value.value,label,rules};
   }
 }
 </script>
