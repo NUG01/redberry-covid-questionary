@@ -10,7 +10,7 @@
     <p>*-ით მონიშნული ველების შევსება<br>სავალდებულოა</p>
     </div>
     <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
-    <router-link to="''" class="hidden"><left-arrow></left-arrow></router-link>
+    <router-link to="/" class="hidden"><left-arrow></left-arrow></router-link>
     <button type="submit"><right-arrow></right-arrow></button>
   </div>
     </Form>

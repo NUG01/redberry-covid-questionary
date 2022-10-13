@@ -1,21 +1,32 @@
 <template>
-   <div class="flex gap-[2.2rem] items-center relative ml-[2rem]">
-        <Field :type="inputType" :id="inputId" :name="inputName"/>
+<div>
+   <div class="flex gap-[2.2rem] items-center relative ml-[2rem]" >
+        <Field  @click="emitRadio" :rules="rules" :value="value" :type="inputType" :id="inputId" :name="inputName"/>
         <label :for="inputId" class="radioLabel">{{ label }}</label>
         </div>
+        <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" :name="inputName"/>
+</div>
 </template>
 
 <script>
-import { Field } from 'vee-validate';
+import { Field,ErrorMessage } from 'vee-validate';
 export default {
-  props: ['name','type','id','label'],
-  components:{Field},
-  setup(props){
+  props: ['name','type','id','label','value','rules'],
+  components:{Field,ErrorMessage},
+  setup(props,context){
+    const rules=props.rules;
+        const value=props.value;
         const label=props.label;
         const inputName=props.name;
         const inputType=props.type
         const inputId=props.id
-    return {inputName,inputType,inputId,label};
+
+
+        function emitRadio(value){
+        context.emit('radio-data', value.target.value)
+        }
+
+    return {inputName,inputType,inputId,label,emitRadio,value,rules};
   }
 }
 </script>
