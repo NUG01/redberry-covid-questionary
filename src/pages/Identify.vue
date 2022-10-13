@@ -1,6 +1,6 @@
 <template>
 <section>
-  <basic-header :number=1 :leftHide=true :rightHide=false :leftLink="''" :rightLink="'covid-questions'">
+  <basic-header :number=1>
   <div class="flex items-start justify-between">
     <identification-form></identification-form>
     <img src="src/assets/identify.png">
@@ -17,9 +17,13 @@ import BasicHeader from '@/components/BasicHeader.vue';
 import { ref } from "vue";
 export default {
   name:"Identification",
-  components:{BasicHeader, IdentificationForm}
+  components:{BasicHeader, IdentificationForm},
+  setup(){
+   //
+    }
+
+  }
   
-}
 </script>
 
 <style scoped>

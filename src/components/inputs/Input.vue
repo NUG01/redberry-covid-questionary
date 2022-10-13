@@ -1,25 +1,54 @@
 <template>
-  <div class="flex flex-col w-[80%] gap-[1.2rem]">
-        <label :for="inputName" class="text-[2.2rem] font-bold text-[#232323]"><slot></slot></label>
-        <Field :type="inputType" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid"/>
-      </div>
+
+  <div class="flex flex-col w-[80%]">
+    <label :for="inputName" class="text-[2.2rem] font-bold text-[#232323] mb-[1.2rem]">{{ label }}</label>
+    <Field @input="emit" :value="val" :rules="rules" :type="inputType" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid"/>
+  <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" :name="inputName"/>
+  </div>
+
 </template>
+
+
 <script>
-import { Field } from 'vee-validate';
+import { Field, ErrorMessage } from 'vee-validate';
+import { computed} from 'vue';
 export default {
-  props: ['name','type','placeholder'],
-  components:{Field},
-  setup(props){
+  props: ['name','type','placeholder','label', 'rules'],
+  components:{Field, ErrorMessage},
+  setup(props,context){
+
+
+        const rules=props.rules;
+        const label=props.label;
         const inputName=props.name;
         const inputType=props.type;
         const inputText=props.placeholder;
 
-    return {inputName,inputType,inputText};
+
+        function emit(value){
+          context.emit('save-data', value.target.value)
+        }
+        
+        const val = computed((value) => localStorage.getItem(inputName));
+
+    return {inputName,inputType,inputText,label,rules,emit,val};
   }
 }
 </script>
 
+
+
+
 <style scoped>
+.shown{
+  display: block;
+}
+.error{
+  color: #F15524;
+  font-size: 16px;
+  margin-left: 2rem;
+  margin-top: 0.3rem;
+}
   input[type='text'], 
   input[type='email']
   {

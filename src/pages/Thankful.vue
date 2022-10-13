@@ -15,7 +15,6 @@ import SmallStar from '@/components/svg/SmallStar.vue';
 import BigStar from '@/components/svg/BigStar.vue';
 export default {
   components:{BigStar,SmallStar},
-  
 }
 </script>
 
@@ -27,7 +26,6 @@ export default {
 }
 .bigStar{
   animation: bigStar 1s ease-out forwards;
-
 }
   @keyframes smallStar {
     0%{
@@ -41,16 +39,13 @@ export default {
       bottom:0;
     right:19%;
       opacity: 0;
-
-    }
+      }
     100%{
       transform: scale(0.9);
        bottom:-27%;
     right:9%;
       opacity: 1;
-     
-    }
-  
+     }
   }
   @keyframes bigStar {
     0%{
@@ -62,15 +57,13 @@ export default {
       transform: scale(0);
     top:7%;
     left:16%;
-
-    }
+}
     100%{
       transform: scale(0.9);
       top:-45%;
       left:9%;
       opacity: 1;
-     
-    }
+  }
   }
 
 .rectangle{
@@ -83,19 +76,16 @@ export default {
   @keyframes thx {
     0%{
       opacity: 0;
-    }
+      }
     50%{
       opacity: 0;
-      
     }
     75%{
       opacity: 0.7;
-      
     }
     100%{
       opacity: 1;
-     
-    }
+     }
   }
 section{
   width:100vw;

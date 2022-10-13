@@ -6,21 +6,21 @@
      <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">რა სიხშირით შეიძლება გვქონდეს საერთო<br>არაფორმალური ონლაინ შეხვედრები, სადაც ყველა<br>სურვილისამებრ ჩაერთვება?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" id="meet1" name="meets">კვირაში ორჯერ</radio-cmp>
-        <radio-cmp type="radio" id="meet2" name="meets">კვირაში ერთხელ</radio-cmp>
-        <radio-cmp type="radio" id="meet3" name="meets">ორ კვირაში ერთხელ</radio-cmp>
-        <radio-cmp type="radio" id="meet4" name="meets">თვეში ერთხელ</radio-cmp>
+        <radio-cmp type="radio" id="meet1" name="meets" label="კვირაში ორჯერ"/>
+        <radio-cmp type="radio" id="meet2" name="meets" label="კვირაში ერთხელ"/>
+        <radio-cmp type="radio" id="meet3" name="meets" label="ორ კვირაში ერთხელ"/>
+        <radio-cmp type="radio" id="meet4" name="meets" label="თვეში ერთხელ"/>
       </div>
       </div>
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">კვირაში რამდენი დღე ისურვებდით ოფისიდან მუშაობას?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-         <radio-cmp type="radio" id="day" name="days">0</radio-cmp>
-         <radio-cmp type="radio" id="day1" name="days">1</radio-cmp>
-         <radio-cmp type="radio" id="day2" name="days">2</radio-cmp>
-         <radio-cmp type="radio" id="day3" name="days">3</radio-cmp>
-         <radio-cmp type="radio" id="day4" name="days">4</radio-cmp>
-         <radio-cmp type="radio" id="day5" name="days">5</radio-cmp>
+         <radio-cmp type="radio" id="day" name="days" label="0"/>
+         <radio-cmp type="radio" id="day1" name="days" label="1"/>
+         <radio-cmp type="radio" id="day2" name="days" label="2"/>
+         <radio-cmp type="radio" id="day3" name="days" label="3"/>
+         <radio-cmp type="radio" id="day4" name="days" label="4"/>
+         <radio-cmp type="radio" id="day5" name="days" label="5"/>
       </div>
       </div>
      
@@ -51,6 +51,7 @@ export default {
   name:"AdvicesForm",
  components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp},
   setup(){
+    
   }
 }
 </script>

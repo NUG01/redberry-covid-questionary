@@ -7,29 +7,18 @@
     </div>
     <slot></slot>
    </div>
-   <div class="flex gap-[12rem] items-center justify-center">
-   <router-link  :to='leftLinkPath' :class="{leftHided: leftHiden}"><left-arrow></left-arrow></router-link>
-   <router-link :to="rightLinkPath" :class="{rightHided: rightHiden}"><right-arrow></right-arrow></router-link>
-   </div>
   </section>
 </template>
 
 <script>
 import RedberryLogo from '@/components/svg/RedberryLogo.vue';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';
-import { ref } from "vue";
 export default {
   name:"BasicHeader",
-  components:{RedberryLogo,LeftArrow,RightArrow},
-  props:['number', 'leftHide', 'rightHide', 'rightLink', 'leftLink'],
+  components:{RedberryLogo},
+  props:['number'],
   setup(props){
      const value=props.number;
-     const leftHiden=ref(props.leftHide);
-     const rightHiden=ref(props.rightHide);
-     const rightLinkPath='/'+ props.rightLink;
-     const leftLinkPath='/'+ props.leftLink;
-     return {value, leftHiden, rightHiden, rightLinkPath, leftLinkPath};
+     return {value};
   }
   
 }
@@ -40,6 +29,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap');
  .numbers{
   font-family: 'Anonymous Pro', sans-serif;
+ }
+ .active{
+  pointer-events: all;
+ }
+ .unactive{
+  pointer-events: none;
  }
  .leftHided{
   opacity: 0;
