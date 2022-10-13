@@ -4,6 +4,11 @@ import getters from "@/store/modules/vaccination/getters.js";
 
 export default{
   state(){
+    return{
+      vaccine:'',
+      stage:'',
+      wait:''
+    };
 
   },
   mutations: mutations,

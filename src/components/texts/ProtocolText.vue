@@ -1,7 +1,5 @@
 <template>
   <div>
-        <p class="text-[2rem] font-normal text-[#232323] ml-[6.2rem] mt-[4rem]">რომ არ გადადო,<br>ბარემ ახლავე დარეგისტრირდი<br><a class="text-[#1289AE]" href="https://booking.mog.gov.ge/">https://booking.mog.gov.ge/</a></p>
-        <p class="text-[2rem] font-normal ml-[6.2rem] mt-[4rem]"><a class="text-[#1289AE]" href="https://booking.mog.gov.ge/"><span>👉</span>https://booking.mog.gov.ge/</a></p>
         <div class="text-[2rem] font-normal text-[#232323] ml-[6.2rem] mt-[4rem]">
         <p>ახალი პროტოკოლით, კოვიდის გადატანიდან 1<br>თვის შემდეგ შეგიძლიათ ვაქცინის გაკეთება.</p>
         <p class="mt-[2rem]">👉რეგისტრაციის ბმული<br><a class="text-[#1289AE]" href="https://booking.mog.gov.ge/">https://booking.mog.gov.ge/</a></p>
