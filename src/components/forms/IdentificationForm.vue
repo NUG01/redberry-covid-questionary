@@ -54,9 +54,9 @@ export default {
     
     
       function onSubmit(values){
-      store.commit('newName',values.name);
-      store.commit('newSurname',values.surname);
-      store.commit('newEmail',values.email);
+      store.dispatch('updateName', values.name);
+      store.dispatch('updateSurname',values.surname);
+      store.dispatch('updateEmail', values.email);
        return router.push('/covid-questions');
   
     }
