@@ -1,8 +1,8 @@
 <template>
   <Form @submit="onSubmit" class="flex flex-col w-[100%] gap-[4.7rem] mt-[4.2rem]">
  
-  <input-cmp @save-data="saveName" rules="required|min:3" name="name" type="text" placeholder="იოსებ" label="სახელი*"/>
-   <input-cmp @save-data="saveSurname" rules="required|min:3" name="surname" type="text" placeholder="ჯუღაშვილი" label="გვარი*"/>
+  <input-cmp @save-data="saveName" rules="required|min:3" name="first_name" type="text" placeholder="იოსებ" label="სახელი*"/>
+   <input-cmp @save-data="saveSurname" rules="required|min:3" name="last_name" type="text" placeholder="ჯუღაშვილი" label="გვარი*"/>
    <input-cmp @save-data="saveEmail" rules="required|email|redberry_email" name="email" type="email" placeholder="fbi@gmail.com" label="მეილი*"/>
     
     <div class="mt-[11rem] text-[1.6rem] font-bold text-[#959595] inline-block">
@@ -36,16 +36,16 @@ export default {
     const router = useRouter();
 
        onBeforeMount(() =>{
-      store.dispatch('updateName', localStorage.getItem('name'));
-      store.dispatch('updateSurname',localStorage.getItem('surname'));
+      store.dispatch('updateName', localStorage.getItem('first_name'));
+      store.dispatch('updateSurname',localStorage.getItem('last_name'));
       store.dispatch('updateEmail',localStorage.getItem('email'));
       });
         
         function saveName(value){
-          localStorage.setItem('name', value)
+          localStorage.setItem('first_name', value)
         }
         function saveSurname(value){
-          localStorage.setItem('surname',value)
+          localStorage.setItem('last_name',value)
         }
         function saveEmail(value){
           localStorage.setItem('email',value)

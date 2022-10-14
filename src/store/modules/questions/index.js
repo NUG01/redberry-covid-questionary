@@ -5,11 +5,11 @@ import getters from "@/store/modules/questions/getters.js";
 export default{
   state(){
     return{
-      radio:'',
-      antiRadio:'',
-      numberDate:'',
-      antiBody:'',
-      date:''
+      had_covid:'',
+      had_antibody_test:'',
+      antibody_date:'',
+      antibody_quantity:'',
+      covid_date:''
     };
   },
   mutations: mutations,

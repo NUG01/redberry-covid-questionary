@@ -1,17 +1,17 @@
 export default {
-  radio(state){
-    return state.radio;
+  had_covid(state){
+    return state.had_covid;
   },
-  antiRadio(state){
-    return state.antiRadio;
+  had_antibody_test(state){
+    return state.had_antibody_test;
   },
-  numberDate(state){
-    return state.numberDate;
+  antibody_date(state){
+    return state.antibody_date;
   },
-  antiBody(state){
-    return state.antiBody;
+  antibody_quantity(state){
+    return state.antibody_quantity;
   },
-  date(state){
-    return state.date;
+  covid_date(state){
+    return state.covid_date;
   }
 };

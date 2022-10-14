@@ -4,31 +4,31 @@
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">გაქვს გადატანილი Covid-19?*</p>
       <div class="flex flex-col gap-[1.1rem]" rules="required">
-        <radio-cmp @radio-data="yesValue" rules="required" value="yes" type="radio" id="radio1" name="radio" label="კი"/>
-        <radio-cmp @radio-data="noValue" rules="required" value="no" type="radio" id="radio2" name="radio" label="არა"/>
-        <radio-cmp @radio-data="notNowValue" rules="required" value="not_now" type="radio" id="radio3" name="radio" label="ახლა მაქვს"/>
-       <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="radio"/>
+        <radio-cmp @radio-data="yesValue" rules="required" value="yes" type="radio" id="radio1" name="had_covid" label="კი"/>
+        <radio-cmp @radio-data="noValue" rules="required" value="no" type="radio" id="radio2" name="had_covid" label="არა"/>
+        <radio-cmp @radio-data="notNowValue" rules="required" value="not_now" type="radio" id="radio3" name="had_covid" label="ახლა მაქვს"/>
+       <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="had_covid"/>
        </div>
       </div>
      <div v-if="showSecondRadio" class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" rules="required" @radio-data="yesValueAnti" value="yes" id="anti-radio1" name="antiRadio" label="კი"/>
-        <radio-cmp type="radio" rules="required" @radio-data="noValueAnti" value="no" id="anti-radio2" name="antiRadio" label="არა"/>
-      <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="antiRadio"/>
+        <radio-cmp type="radio" rules="required" @radio-data="yesValueAnti" value="true" id="anti-radio1" name="had_antibody_test" label="კი"/>
+        <radio-cmp type="radio" rules="required" @radio-data="noValueAnti" value="false" id="anti-radio2" name="had_antibody_test" label="არა"/>
+      <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="had_antibody_test"/>
       </div>
       </div>
       <div v-if="showPeriodInput">
       <p class="mb-[3rem]">თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა</p>
       <div class="flex flex-col gap-[2.5rem] ml-[2rem]">
-        <input-cmp name="numberDate" @save-data="saveDate" type="text" placeholder="რიცხვი"/>
-        <input-cmp name="antiBody" @save-data="saveQuantity" type="text" placeholder="ანტისხეულების რაოდენობა"/>
+        <input-cmp name="antibody_date" @save-data="saveDate" type="text" placeholder="რიცხვი"/>
+        <input-cmp name="antibody_quantity" @save-data="saveQuantity" type="text" placeholder="ანტისხეულების რაოდენობა"/>
       </div>
       </div>
     <div v-if="showPeriodTwoInput">
       <p class="mb-[3rem]">მიუთითე მიახლოებითი პერიოდი<br>(დღე/თვე/წელი) როდის გქონდა Covid-19*</p>
       <div class="flex flex-col gap-[1rem] ml-[2rem]">
-        <input-cmp name="date" @save-data="covidDate" rules="required|covid_date" type="text" placeholder="დდ/თთ/წწ"/>
+        <input-cmp name="covid_date" @save-data="covidDate" rules="required|covid_date" type="text" placeholder="დდ/თთ/წწ"/>
       </div>
       </div>
       </div>
@@ -61,12 +61,13 @@ export default {
     const readyToShowInput=ref(false);
     const readyToShowTwoInput=ref(false);
 
+
       onBeforeMount(() =>{
        store.dispatch('updateRadio', localStorage.getItem('had_covid'));
-      store.dispatch('updateAntiradio',localStorage.getItem('antibody_test'));
+      store.dispatch('updateAntiradio',localStorage.getItem('had_antibody_test'));
       store.dispatch('updateNumberdate', localStorage.getItem('antibody_date'));
-      store.dispatch('updateAntibody',localStorage.getItem('antibody'));
-      store.dispatch('updateDate', localStorage.getItem('date'));
+      store.dispatch('updateAntibody',localStorage.getItem('antibody_quantity'));
+      store.dispatch('updateDate', localStorage.getItem('covid_date'));
       });
 
      
@@ -78,34 +79,34 @@ export default {
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
-          localStorage.removeItem("antibody_test");
-          localStorage.removeItem("date");
+          localStorage.removeItem("had_antibody_test");
+          localStorage.removeItem("covid_date");
           localStorage.removeItem("antibody_date");
-          localStorage.removeItem("antibody");
+          localStorage.removeItem("antibody_quantity");
           localStorage.setItem('had_covid',value)
         }
         function notNowValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
-          localStorage.removeItem("antibody_test");
-          localStorage.removeItem("date");
+          localStorage.removeItem("had_antibody_test");
+          localStorage.removeItem("covid_date");
           localStorage.removeItem("antibody_date");
-          localStorage.removeItem("antiBody");
+          localStorage.removeItem("antibody_quantity");
           localStorage.setItem('had_covid',value)
         }
         function yesValueAnti(value){
           readyToShowInput.value=true;
           readyToShowTwoInput.value=false;
-           localStorage.removeItem("date");
-          localStorage.setItem('antibody_test',value)
+           localStorage.removeItem("covid_date");
+          localStorage.setItem('had_antibody_test',value)
         }
         function noValueAnti(value){
           readyToShowInput.value=false;
           readyToShowTwoInput.value=true;
           localStorage.removeItem("antibody_date");
-          localStorage.removeItem("antibody");
-          localStorage.setItem('antibody_test',value)
+          localStorage.removeItem("antibody_quantity");
+          localStorage.setItem('had_antibody_test',value)
         }
         function saveDate(value){
           localStorage.setItem('antibody_date', value)
@@ -114,7 +115,7 @@ export default {
           localStorage.setItem('antibody_quantity', value)
         }
         function covidDate(value){
-          localStorage.setItem('date', value)
+          localStorage.setItem('covid_date', value)
         }
 
       function onSubmit(values){

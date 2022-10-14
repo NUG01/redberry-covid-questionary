@@ -5,8 +5,8 @@ import getters from "@/store/modules/identification/getters.js";
 export default{
   state(){
     return{
-      name:'',
-      surname:'',
+      first_name:'',
+      last_name:'',
       email:''
     };
   },
