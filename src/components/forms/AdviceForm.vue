@@ -1,26 +1,28 @@
 <template>
 <div class="form-control scrollHide">
  <advice-text></advice-text>
-    <Form class="flex flex-col w-[100%] mt-[4.2rem]">
+    <Form @submit="onSubmit" class="flex flex-col w-[100%] mt-[4.2rem]">
       <div class="flex flex-col gap-[4.6rem]">
      <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">რა სიხშირით შეიძლება გვქონდეს საერთო<br>არაფორმალური ონლაინ შეხვედრები, სადაც ყველა<br>სურვილისამებრ ჩაერთვება?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" id="meet1" name="meets" label="კვირაში ორჯერ"/>
-        <radio-cmp type="radio" id="meet2" name="meets" label="კვირაში ერთხელ"/>
-        <radio-cmp type="radio" id="meet3" name="meets" label="ორ კვირაში ერთხელ"/>
-        <radio-cmp type="radio" id="meet4" name="meets" label="თვეში ერთხელ"/>
+        <radio-cmp type="radio" rules="required" id="meet1" name="meets" label="კვირაში ორჯერ"/>
+        <radio-cmp type="radio" rules="required" id="meet2" name="meets" label="კვირაში ერთხელ"/>
+        <radio-cmp type="radio" rules="required" id="meet3" name="meets" label="ორ კვირაში ერთხელ"/>
+        <radio-cmp type="radio" rules="required" id="meet4" name="meets" label="თვეში ერთხელ"/>
+         <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="meets"/>
       </div>
       </div>
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">კვირაში რამდენი დღე ისურვებდით ოფისიდან მუშაობას?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-         <radio-cmp type="radio" id="day" name="days" label="0"/>
-         <radio-cmp type="radio" id="day1" name="days" label="1"/>
-         <radio-cmp type="radio" id="day2" name="days" label="2"/>
-         <radio-cmp type="radio" id="day3" name="days" label="3"/>
-         <radio-cmp type="radio" id="day4" name="days" label="4"/>
-         <radio-cmp type="radio" id="day5" name="days" label="5"/>
+         <radio-cmp type="radio" rules="required" id="day" name="days" label="0"/>
+         <radio-cmp type="radio" rules="required" id="day1" name="days" label="1"/>
+         <radio-cmp type="radio" rules="required" id="day2" name="days" label="2"/>
+         <radio-cmp type="radio" rules="required" id="day3" name="days" label="3"/>
+         <radio-cmp type="radio" rules="required" id="day4" name="days" label="4"/>
+         <radio-cmp type="radio" rules="required" id="day5" name="days" label="5"/>
+          <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="days"/>
       </div>
       </div>
      
@@ -41,7 +43,7 @@
 
 
 <script>
-import { Form, Field } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
 import LeftArrow from '@/components/svg/LeftArrow.vue';
 import AdviceText from '@/components/texts/AdviceText.vue';
 import RadioCmp from '@/components/inputs/Radio.vue';                          
@@ -49,7 +51,7 @@ import InputCmp from '@/components/inputs/Input.vue';
 
 export default {
   name:"AdvicesForm",
- components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp},
+ components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp,ErrorMessage},
   setup(){
     
   }

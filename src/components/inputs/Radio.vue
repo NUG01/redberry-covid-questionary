@@ -4,15 +4,14 @@
         <Field  @click="emitRadio" :rules="rules" :value="value" :type="inputType" :id="inputId" :name="inputName"/>
         <label :for="inputId" class="radioLabel">{{ label }}</label>
         </div>
-        <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" :name="inputName"/>
 </div>
 </template>
 
 <script>
-import { Field,ErrorMessage } from 'vee-validate';
+import { Field } from 'vee-validate';
 export default {
   props: ['name','type','id','label','value','rules'],
-  components:{Field,ErrorMessage},
+  components:{ Field },
   setup(props,context){
     const rules=props.rules;
         const value=props.value;
