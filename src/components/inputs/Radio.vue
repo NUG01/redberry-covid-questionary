@@ -25,10 +25,8 @@ export default {
         function saveRadioOnRefresh(storageName,storageValue,elementId){
          onMounted(()=>{
             if(localStorage.getItem(storageName)==storageValue && document.getElementById(elementId)){
-            setTimeout(function(){ 
             const elem = document.getElementById(elementId)
             elem.click(); 
-            }, 100);
           }
           });
         };
