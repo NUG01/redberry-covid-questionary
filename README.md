@@ -22,8 +22,7 @@
 
 * <img src="./readme_assets/veevalidate.png" width="35" style="position: relative; top: 4px" /> *Vee-validate@4 and up*
 * <img src="./readme_assets/1200px-Npm-logo.svg.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
-* <img src="./readme_assets/vite.webp" width="35" style="position: relative; top: 4px" />
-* Vite@3 and up*
+* <img src="./readme_assets/vite.webp" width="35" style="position: relative; top: 4px" />*Vite@3 and up*
 
 
 
