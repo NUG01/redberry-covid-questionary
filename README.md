@@ -20,8 +20,8 @@
 #
 ### Prerequisites
 
-* <img src="./vue-project/src/assets/veevalidate.png" width="35" style="position: relative; top: 4px" /> *Vee-validate@4 and up*
-* <img src="./vue-project/src/assets/1200px-Npm-logo.svg.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
+* <img src="vue-project/src/assets/veevalidate.png" width="35" style="position: relative; top: 4px" /> *Vee-validate@4 and up*
+* <img src="/vue-project/src/assets/1200px-Npm-logo.svg.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
 * <img src="/vue-project/src/assets/vite.webp" width="35" style="position: relative; top: 4px" />
 
 
