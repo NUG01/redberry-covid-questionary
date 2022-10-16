@@ -1,4 +1,4 @@
- !["covid-questionary"](./vue-project/readme_assets/logo.png)
+ !["covid-questionary"](./readme_assets/logo.png)
 
 #
 ### Covid-Questionary
@@ -20,17 +20,17 @@
 #
 ### Prerequisites
 
-* <img src="./vue-project/readme_assets/veevalidate.png" width="35" style="position: relative; top: 4px" /> *Vee-validate@4 and up*
-* <img src="./vue-project/readme_assets/1200px-Npm-logo.svg.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
-* <img src="./vue-project/readme_assets/vite.webp" width="35" style="position: relative; top: 4px" />
+* <img src="./readme_assets/veevalidate.png" width="35" style="position: relative; top: 4px" /> *Vee-validate@4 and up*
+* <img src="./readme_assets/1200px-Npm-logo.svg.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
+* <img src="./readme_assets/vite.webp" width="35" style="position: relative; top: 4px" />
 
 
 
 #
 ### Tech Stack
 
-* <img src="./vue-project/readme_assets/Vue.js_Logo_2.svg.png" height="18" style="position: relative; top: 4px" /> [Vue@3.x](https://vuejs.org/) - front-end framework
-* <img src="./vue-project/readme_assets/tailwindcss-1633184775.jpg" height="18" style="position: relative; top: 4px" /> [Tailwind@3.x](https://tailwindui.com/components/application-ui/lists/tables) - css framework
+* <img src="./readme_assets/Vue.js_Logo_2.svg.png" height="18" style="position: relative; top: 4px" /> [Vue@3.x](https://vuejs.org/) - front-end framework
+* <img src="./readme_assets/tailwindcss-1633184775.jpg" height="18" style="position: relative; top: 4px" /> [Tailwind@3.x](https://tailwindui.com/components/application-ui/lists/tables) - css framework
 
 
 
@@ -72,7 +72,7 @@ it builds your Tailwindcss styling into executable CSS.
 ### Deployment
 <br/>
 
-!["nginx / digital ocean"](./vue-project/readme_assets/digital.png)
+!["nginx / digital ocean"](./readme_assets/digital.png)
 
 <br />
 
