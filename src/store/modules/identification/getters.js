@@ -1,9 +1,9 @@
 export default {
-  name(state){
-    return state.name;
+  first_name(state){
+    return state.first_name;
   },
-  surname(state){
-    return state.surname;
+  last_name(state){
+    return state.last_name;
   },
   email(state){
     return state.email;

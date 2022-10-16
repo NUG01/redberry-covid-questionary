@@ -1,17 +1,17 @@
 export default {
   newRadio(state,payload){
-    state.radio=payload;
+    state.had_covid=payload;
   },
   newAntiradio(state,payload){
-    state.antiRadio=payload;
+    state.had_antibody_test=payload;
   },
   newNumberdate(state,payload){
-    state.numberDate=payload;
+    state.antibody_date=payload;
   },
   newAntibody(state,payload){
-    state.antiBody=payload;
+    state.antibody_quantity=payload;
   },
   newDate(state,payload){
-    state.date=payload;
+    state.covid_date=payload;
   }
 };

@@ -1,9 +1,9 @@
 export default {
   newName(state,payload){
-    state.name=payload;
+    state.first_name=payload;
   },
   newSurname(state,payload){
-    state.surname=payload;
+    state.last_name=payload;
   },
   newEmail(state,payload){
     state.email=payload;

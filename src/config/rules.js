@@ -9,12 +9,12 @@ defineRule("min", min);
 
     let regex = /@[a-zA-Z]+\.[a-zA-Z]e/i;
     defineRule('redberry_email', value => {
-    if (value && !regex.test(value) && value.slice(-12)!=='@redberry.ge') {
+    if (value && !regex.test(value) && value.slice(-12).toLowerCase().trim()!=='@redberry.ge' && value.split('@')[1]!=='redberry.ge') {
         return 'გთხოვთ დარეგისტრირდეთ Redberry-ს მეილით (youremail@redberry.ge)';
     }
-        return true;
+    return true;
      });
-
+     
     let regex2 = /(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/((19|20)\d\d)/;
     defineRule('covid_date', value => {
     if (value && !regex2.test(value)) {
