@@ -7,6 +7,7 @@
         <radio-cmp @radio-data="yesValue" rules="required" value="yes" type="radio" id="radio1" name="radio" label="კი"/>
         <radio-cmp @radio-data="noValue" rules="required" value="no" type="radio" id="radio2" name="radio" label="არა"/>
         <radio-cmp @radio-data="notNowValue" rules="required" value="not_now" type="radio" id="radio3" name="radio" label="ახლა მაქვს"/>
+       <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="radio"/>
        </div>
       </div>
      <div v-if="showSecondRadio" class="flex flex-col gap-[8px]">
@@ -14,6 +15,7 @@
       <div class="flex flex-col gap-[1.1rem]">
         <radio-cmp type="radio" rules="required" @radio-data="yesValueAnti" value="yes" id="anti-radio1" name="antiRadio" label="კი"/>
         <radio-cmp type="radio" rules="required" @radio-data="noValueAnti" value="no" id="anti-radio2" name="antiRadio" label="არა"/>
+      <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="antiRadio"/>
       </div>
       </div>
       <div v-if="showPeriodInput">
@@ -39,7 +41,7 @@
 
 
 <script>
-import { Form, Field } from 'vee-validate';
+import { Form, Field,ErrorMessage } from 'vee-validate';
 import RadioCmp from '@/components/inputs/Radio.vue'; 
 import InputCmp from '@/components/inputs/Input.vue';
 import LeftArrow from '@/components/svg/LeftArrow.vue';
@@ -50,7 +52,7 @@ import { useStore } from 'vuex';
 export default {
   emits:["radio-data","save-data"],
   name:"QuestionForm",
- components:{Form,Field,RadioCmp,InputCmp,LeftArrow,RightArrow},
+ components:{Form,Field,RadioCmp,InputCmp,LeftArrow,RightArrow, ErrorMessage},
   setup(){
     const store = useStore();
     const router = useRouter();
@@ -60,59 +62,62 @@ export default {
     const readyToShowTwoInput=ref(false);
 
       onBeforeMount(() =>{
-      store.commit('newRadio', localStorage.getItem('radio'));
-      store.commit('newAntiradio', localStorage.getItem('antiRadio'));
-      store.commit('newNumberdate', localStorage.getItem('numberDate'));
-      store.commit('newAntibody', localStorage.getItem('antiBody'));
-      store.commit('newDate', localStorage.getItem('date'));
+       store.dispatch('updateRadio', localStorage.getItem('had_covid'));
+      store.dispatch('updateAntiradio',localStorage.getItem('antibody_test'));
+      store.dispatch('updateNumberdate', localStorage.getItem('antibody_date'));
+      store.dispatch('updateAntibody',localStorage.getItem('antibody'));
+      store.dispatch('updateDate', localStorage.getItem('date'));
       });
 
      
         function yesValue(value){
           readyToShow.value=true;
-          localStorage.setItem('radio', value)
+          localStorage.setItem('had_covid', value)
         }
         function noValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
-          localStorage.setItem('radio',value)
+          localStorage.removeItem("antibody_test");
+          localStorage.removeItem("date");
+          localStorage.removeItem("antibody_date");
+          localStorage.removeItem("antibody");
+          localStorage.setItem('had_covid',value)
         }
         function notNowValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
-          localStorage.setItem('radio',value)
+          localStorage.removeItem("antibody_test");
+          localStorage.removeItem("date");
+          localStorage.removeItem("antibody_date");
+          localStorage.removeItem("antiBody");
+          localStorage.setItem('had_covid',value)
         }
         function yesValueAnti(value){
           readyToShowInput.value=true;
           readyToShowTwoInput.value=false;
            localStorage.removeItem("date");
-          localStorage.setItem('antiRadio',value)
+          localStorage.setItem('antibody_test',value)
         }
         function noValueAnti(value){
           readyToShowInput.value=false;
           readyToShowTwoInput.value=true;
-          localStorage.removeItem("numberDate");
-          localStorage.removeItem("antiBody");
-          localStorage.setItem('antiRadio',value)
+          localStorage.removeItem("antibody_date");
+          localStorage.removeItem("antibody");
+          localStorage.setItem('antibody_test',value)
         }
         function saveDate(value){
-          localStorage.setItem('numberDate', value)
+          localStorage.setItem('antibody_date', value)
         }
         function saveQuantity(value){
-          localStorage.setItem('antiBody', value)
+          localStorage.setItem('antibody_quantity', value)
         }
         function covidDate(value){
           localStorage.setItem('date', value)
         }
 
       function onSubmit(values){
-      store.dispatch('updateRadio', values.radio);
-      store.dispatch('updateAntiradio',values.antiRadio);
-      store.dispatch('updateNumberdate', values.numberDate);
-      store.dispatch('updateAntibody',values.antiBody);
-      store.dispatch('updateDate', values.date);
       return router.push('/vaccination');
   
     }

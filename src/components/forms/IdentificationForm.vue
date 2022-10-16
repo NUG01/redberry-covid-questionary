@@ -36,9 +36,9 @@ export default {
     const router = useRouter();
 
        onBeforeMount(() =>{
-      store.commit('newName',localStorage.getItem('name'));
-      store.commit('newSurname',localStorage.getItem('surname'));
-      store.commit('newEmail',localStorage.getItem('email'));
+      store.dispatch('updateName', localStorage.getItem('name'));
+      store.dispatch('updateSurname',localStorage.getItem('surname'));
+      store.dispatch('updateEmail',localStorage.getItem('email'));
       });
         
         function saveName(value){
@@ -54,9 +54,6 @@ export default {
     
     
       function onSubmit(values){
-      store.dispatch('updateName', values.name);
-      store.dispatch('updateSurname',values.surname);
-      store.dispatch('updateEmail', values.email);
        return router.push('/covid-questions');
   
     }

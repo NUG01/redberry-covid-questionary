@@ -7,6 +7,7 @@ import "@/config/rules.js";
 import "@/config/messages.js";
 
 
+
 const app=createApp(App);
 app.use(router);
 app.use(store);
