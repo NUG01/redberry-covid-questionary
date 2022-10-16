@@ -25,7 +25,6 @@ import InputCmp from '@/components/inputs/Input.vue';
 import LeftArrow from '@/components/svg/LeftArrow.vue';
 import RightArrow from '@/components/svg/RightArrow.vue';
 import { useRouter } from 'vue-router'
-import { onBeforeMount} from 'vue'
 export default {
   emits:["save-data"],
   props:['emitInput'],
@@ -35,12 +34,6 @@ export default {
     const store = useStore();
     const router = useRouter();
 
-       onBeforeMount(() =>{
-      store.dispatch('updateName', localStorage.getItem('first_name'));
-      store.dispatch('updateSurname',localStorage.getItem('last_name'));
-      store.dispatch('updateEmail',localStorage.getItem('email'));
-      });
-        
         function saveName(value){
           localStorage.setItem('first_name', value)
         }

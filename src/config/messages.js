@@ -48,10 +48,10 @@ configure({
         had_antibody_test: {
           required: 'არჩევნის გაკეთება აუცილებელია'
         },
-        meets: {
+        non_formal_meetings: {
           required: 'არჩევნის გაკეთება აუცილებელია'
         },
-        days: {
+        number_of_days_from_office: {
           required: 'არჩევნის გაკეთება აუცილებელია'
         },
       },

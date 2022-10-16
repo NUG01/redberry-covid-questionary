@@ -46,7 +46,7 @@ import RadioCmp from '@/components/inputs/Radio.vue';
 import InputCmp from '@/components/inputs/Input.vue';
 import LeftArrow from '@/components/svg/LeftArrow.vue';
 import RightArrow from '@/components/svg/RightArrow.vue';
-import { ref, onBeforeMount } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex';
 export default {
@@ -60,15 +60,6 @@ export default {
     const readyToShow=ref(false);
     const readyToShowInput=ref(false);
     const readyToShowTwoInput=ref(false);
-
-
-      onBeforeMount(() =>{
-       store.dispatch('updateRadio', localStorage.getItem('had_covid'));
-      store.dispatch('updateAntiradio',localStorage.getItem('had_antibody_test'));
-      store.dispatch('updateNumberdate', localStorage.getItem('antibody_date'));
-      store.dispatch('updateAntibody',localStorage.getItem('antibody_quantity'));
-      store.dispatch('updateDate', localStorage.getItem('covid_date'));
-      });
 
      
         function yesValue(value){
@@ -109,7 +100,7 @@ export default {
           localStorage.setItem('had_antibody_test',value)
         }
         function saveDate(value){
-          localStorage.setItem('antibody_date', value)
+          localStorage.setItem('antibody_date', value);
         }
         function saveQuantity(value){
           localStorage.setItem('antibody_quantity', value)

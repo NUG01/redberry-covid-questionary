@@ -49,6 +49,18 @@ export default {
         saveRadioOnRefresh('waiting','not_planning','wait2')
         saveRadioOnRefresh('waiting','planning_vaccination','wait3')
 
+        saveRadioOnRefresh('non_formal_meetings','twice_a_week','meet1')
+        saveRadioOnRefresh('non_formal_meetings','once_a_week','meet2')
+        saveRadioOnRefresh('non_formal_meetings','once_two_week','meet3')
+        saveRadioOnRefresh('non_formal_meetings','once_a_month','meet4')
+        
+        saveRadioOnRefresh('number_of_days_from_office','0','day')
+        saveRadioOnRefresh('number_of_days_from_office','1','day1')
+        saveRadioOnRefresh('number_of_days_from_office','2','day2')
+        saveRadioOnRefresh('number_of_days_from_office','3','day3')
+        saveRadioOnRefresh('number_of_days_from_office','4','day4')
+        saveRadioOnRefresh('number_of_days_from_office','5','day5')
+        
         function emitRadio(value){
         context.emit('radio-data', value.target.value)
         }
