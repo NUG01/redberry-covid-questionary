@@ -50,20 +50,13 @@ import RadioCmp from '@/components/inputs/Radio.vue';
 import InputCmp from '@/components/inputs/Input.vue';                          
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex'; 
-import { onBeforeMount,onMounted,ref } from 'vue'; 
+import { onMounted,ref } from 'vue'; 
 export default {
   name:"AdvicesForm",
  components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp,ErrorMessage},
   setup(){
     const store = useStore();
     const router = useRouter();
-
-      onBeforeMount(() =>{
-      store.dispatch('updateMeetings', localStorage.getItem('non_formal_meetings'));
-      store.dispatch('updateOffice',localStorage.getItem('number_of_days_from_office'));
-      store.dispatch('updateLiveMeetings',localStorage.getItem('what_about_meetings_in_live'));
-      store.dispatch('updateOpinion',localStorage.getItem('tell_us_your_opinion_about_us'));
-      });
 
        const textOne=ref('');
        const textTwo=ref('');

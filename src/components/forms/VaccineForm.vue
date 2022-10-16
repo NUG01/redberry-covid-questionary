@@ -40,7 +40,7 @@
 
 <script>
 import { Form,ErrorMessage } from 'vee-validate';
-import { ref, onBeforeMount, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import RadioCmp from '@/components/inputs/Radio.vue';                              
 import LinkText from '@/components/texts/LinkText.vue';    
 import ProtocolText from '@/components/texts/ProtocolText.vue';    
@@ -59,12 +59,6 @@ export default {
      const readyToShowSecond=ref(false);
      const linkShow=ref(false);
      const protocolShow=ref(false);
-
-       onBeforeMount(() =>{
-      store.dispatch('updateVaccine', localStorage.getItem('had_vaccine'));
-      store.dispatch('updateVaccine',localStorage.getItem('vaccination_stage'));
-      store.dispatch('updateVaccine',localStorage.getItem('waiting'));
-      });
 
 
 

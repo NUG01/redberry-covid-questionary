@@ -13,15 +13,48 @@
 <script>
 import SmallStar from '@/components/svg/SmallStar.vue';
 import BigStar from '@/components/svg/BigStar.vue';
+import {onMounted} from 'vue';
 export default {
   components:{BigStar,SmallStar},
 
   setup(){
+    let date=null;
+    if(localStorage.getItem('antibody_date')){
+      date=new Date(localStorage.getItem('antibody_date').replaceAll('/', '-').split("-").reverse().join("-")).toISOString( );
+     }
+    
+    onMounted(()=>{
+      const data={
+        first_name: localStorage.getItem('first_name'),
+        last_name: localStorage.getItem('last_name'),
+        email: localStorage.getItem('email'),
+        had_covid: localStorage.getItem('had_covid'),
+        had_antibody_test: localStorage.getItem('had_antibody_test')=="true"? true : false,
+        antibodies:{
+          // test_date:date.toISOString(),
+          test_date:date,
+          number:Number(localStorage.getItem('antibody_quantity'))
+        },
+        covid_date: localStorage.getItem('covid_date'),
+        had_vaccine: localStorage.getItem('had_vaccine')=="yes"? true : false,
+        vaccination_stage: localStorage.getItem('vaccination_stage'),
+        waiting: localStorage.getItem('waiting'),
+        non_formal_meetings: localStorage.getItem('non_formal_meetings'),
+        number_of_days_from_office: Number(localStorage.getItem('number_of_days_from_office')),
+        what_about_meetings_in_live: localStorage.getItem('what_about_meetings_in_live'),
+        tell_us_your_opinion_about_us: localStorage.getItem('tell_us_your_opinion_about_us'),
+      }
+
+     fetch('https://covid19.devtest.ge/api/create', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data),
+      }).then(localStorage.clear());
+
+    });
      
 
-    return {
-
-    }
+    return {}
   }
 }
 </script>
