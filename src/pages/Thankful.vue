@@ -15,6 +15,14 @@ import SmallStar from '@/components/svg/SmallStar.vue';
 import BigStar from '@/components/svg/BigStar.vue';
 export default {
   components:{BigStar,SmallStar},
+
+  setup(){
+     
+
+    return {
+
+    }
+  }
 }
 </script>
 

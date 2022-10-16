@@ -6,36 +6,36 @@
      <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">რა სიხშირით შეიძლება გვქონდეს საერთო<br>არაფორმალური ონლაინ შეხვედრები, სადაც ყველა<br>სურვილისამებრ ჩაერთვება?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" rules="required" id="meet1" name="meets" label="კვირაში ორჯერ"/>
-        <radio-cmp type="radio" rules="required" id="meet2" name="meets" label="კვირაში ერთხელ"/>
-        <radio-cmp type="radio" rules="required" id="meet3" name="meets" label="ორ კვირაში ერთხელ"/>
-        <radio-cmp type="radio" rules="required" id="meet4" name="meets" label="თვეში ერთხელ"/>
-         <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="meets"/>
+        <radio-cmp type="radio" @radio-data="meetings" value="twice_a_week" rules="required" id="meet1" name="non_formal_meetings" label="კვირაში ორჯერ"/>
+        <radio-cmp type="radio" @radio-data="meetings" value="once_a_week" rules="required" id="meet2" name="non_formal_meetings" label="კვირაში ერთხელ"/>
+        <radio-cmp type="radio" @radio-data="meetings" value="once_two_week" rules="required" id="meet3" name="non_formal_meetings" label="ორ კვირაში ერთხელ"/>
+        <radio-cmp type="radio" @radio-data="meetings" value="once_a_month" rules="required" id="meet4" name="non_formal_meetings" label="თვეში ერთხელ"/>
+         <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="non_formal_meetings"/>
       </div>
       </div>
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">კვირაში რამდენი დღე ისურვებდით ოფისიდან მუშაობას?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-         <radio-cmp type="radio" rules="required" id="day" name="days" label="0"/>
-         <radio-cmp type="radio" rules="required" id="day1" name="days" label="1"/>
-         <radio-cmp type="radio" rules="required" id="day2" name="days" label="2"/>
-         <radio-cmp type="radio" rules="required" id="day3" name="days" label="3"/>
-         <radio-cmp type="radio" rules="required" id="day4" name="days" label="4"/>
-         <radio-cmp type="radio" rules="required" id="day5" name="days" label="5"/>
-          <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="days"/>
+         <radio-cmp type="radio" @radio-data="remoteNumber" value="0" rules="required" id="day" name="number_of_days_from_office" label="0"/>
+         <radio-cmp type="radio" @radio-data="remoteNumber" value="1" rules="required" id="day1" name="number_of_days_from_office" label="1"/>
+         <radio-cmp type="radio" @radio-data="remoteNumber" value="2" rules="required" id="day2" name="number_of_days_from_office" label="2"/>
+         <radio-cmp type="radio" @radio-data="remoteNumber" value="3" rules="required" id="day3" name="number_of_days_from_office" label="3"/>
+         <radio-cmp type="radio" @radio-data="remoteNumber" value="4" rules="required" id="day4" name="number_of_days_from_office" label="4"/>
+         <radio-cmp type="radio" @radio-data="remoteNumber" value="5" rules="required" id="day5" name="number_of_days_from_office" label="5"/>
+          <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="number_of_days_from_office"/>
       </div>
       </div>
      
       </div>
      <div class="flex flex-col w-[100%] gap-[1.2rem]">
       <label class="label">რას ფიქრობ ფიზიკურ შეკრებებზე?</label>
-      <textarea class="area border-[0.8px] border-[#232323] border-solid"></textarea>
+      <textarea :value="textOne" @input="saveTextOne" class="area border-[0.8px] border-[#232323] border-solid" name="what_about_meetings_in_live"></textarea>
      </div>
      <div class="flex flex-col w-[100%] gap-[1.2rem]">
       <label class="label">რას ფიქრობ არსებულ გარემოზე:<br>რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?</label>
-      <textarea class="area border-[0.8px] border-[#232323] border-solid"></textarea>
+      <textarea :value="textTwo" @input="saveTextTwo" class="area border-[0.8px] border-[#232323] border-solid" name="tell_us_your_opinion_about_us"></textarea>
      </div>
-     <button type="button" class="self-end bg-[#208298] rounded-[42px] flex items-center justify-center mt-[5.4rem] w-[18rem] h-[5.6rem]"><p class="p-[17px] button">დასრულება</p></button>
+     <button type="submit" class="self-end bg-[#208298] rounded-[42px] flex items-center justify-center mt-[5.4rem] w-[18rem] h-[5.6rem]"><p class="p-[17px] button">დასრულება</p></button>
      <router-link  :to="'vaccination'" class="mt-[7.4rem] self-end"><left-arrow></left-arrow></router-link>
     </Form>
 </div>
@@ -48,12 +48,61 @@ import LeftArrow from '@/components/svg/LeftArrow.vue';
 import AdviceText from '@/components/texts/AdviceText.vue';
 import RadioCmp from '@/components/inputs/Radio.vue';                          
 import InputCmp from '@/components/inputs/Input.vue';                          
-
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex'; 
+import { onBeforeMount,onMounted,ref } from 'vue'; 
 export default {
   name:"AdvicesForm",
  components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp,ErrorMessage},
   setup(){
+    const store = useStore();
+    const router = useRouter();
+
+      onBeforeMount(() =>{
+      store.dispatch('updateMeetings', localStorage.getItem('non_formal_meetings'));
+      store.dispatch('updateOffice',localStorage.getItem('number_of_days_from_office'));
+      store.dispatch('updateLiveMeetings',localStorage.getItem('what_about_meetings_in_live'));
+      store.dispatch('updateOpinion',localStorage.getItem('tell_us_your_opinion_about_us'));
+      });
+
+       const textOne=ref('');
+       const textTwo=ref('');
+
+      onMounted(()=>{
+       textOne.value= localStorage.getItem('what_about_meetings_in_live');
+       textTwo.value=localStorage.getItem('tell_us_your_opinion_about_us');
+      });
+
+
+    function meetings(value){
+          localStorage.setItem('non_formal_meetings', value)
+    };
     
+    function remoteNumber(value){
+          localStorage.setItem('number_of_days_from_office', value)
+    };
+   
+   function saveTextOne(value){
+      localStorage.setItem('what_about_meetings_in_live', value.target.value)
+    }
+    
+    function saveTextTwo(value){
+      localStorage.setItem('tell_us_your_opinion_about_us', value.target.value)
+    }
+
+   function onSubmit(){
+    return router.push('/thanks');
+   }
+
+    return{
+      meetings,
+      remoteNumber,
+      saveTextOne,
+      saveTextTwo,
+      onSubmit,
+      textOne,
+      textTwo
+    }
   }
 }
 </script>
