@@ -46,12 +46,6 @@ git clone https://github.com/RedberryInternship/nugzar-skhiereli-covid-questiona
 npm install
 ```
 
-and also:
-```sh
-npm run dev
-```
-in order to build your Tailwindcss resources.
-
 
 ##### Now, you should be good to go!
 
