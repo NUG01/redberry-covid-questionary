@@ -31,7 +31,6 @@ export default {
         had_covid: localStorage.getItem('had_covid'),
         had_antibody_test: localStorage.getItem('had_antibody_test')=="true"? true : false,
         antibodies:{
-          // test_date:date.toISOString(),
           test_date:date,
           number:Number(localStorage.getItem('antibody_quantity'))
         },
