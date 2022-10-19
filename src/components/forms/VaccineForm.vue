@@ -31,8 +31,8 @@
      <protocol-text v-if="protocol"></protocol-text>
       </div>
        <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
-   <router-link to="covid-questions"><left-arrow></left-arrow></router-link>
-   <button type="submit"><right-arrow></right-arrow></button>
+   <router-link to="covid-questions" class="z-50"><left-arrow></left-arrow></router-link>
+   <button type="submit" class="z-50"><right-arrow></right-arrow></button>
   </div>
     </Form>
 </template>

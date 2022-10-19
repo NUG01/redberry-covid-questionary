@@ -25,9 +25,7 @@ export default {
 
 .rectangle{
   animation: rect 0.36s ease-in forwards;
-}
-img{
-  transform: translateY(3%);
+  transform: scale(0.8);
 }
 @keyframes rect {
   0%{
@@ -42,7 +40,7 @@ img{
       width:28.8rem;
     height:32.1rem;
 clip-path: polygon(46% 17.3%, 55.7% 34.9%, 95.5% 29.2%, 60.3% 46.2%, 94.4% 68.6%, 50.2% 52.9%, 6.6% 100%, 39% 47.1%, 6.6% 39.7%, 41.8% 34.9%);
-top:10%;
+top:7%;
 left:50.2%;
 background-color: rgba(201,203,106,0.72);
    
