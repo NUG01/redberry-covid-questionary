@@ -3,7 +3,7 @@
   <basic-header :number=4 :leftHide=true :rightHide=true :leftLink="'vaccination'" :rightLink="''">
     <div class="flex items-start justify-between">
     <advice-form></advice-form>
-    <img class="mt-[7rem]" src="src/assets/bike.png">
+    <img class="mt-[7rem]" src="/src/assets/bike.png">
     <div class="absolute w-[62rem] h-[7.5rem] top-[30%] left-[61%] rectangle"></div>
   </div>
   </basic-header>
