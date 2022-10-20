@@ -14,36 +14,39 @@
 import SmallStar from '@/components/icons/SmallStar.vue';
 import BigStar from '@/components/icons/BigStar.vue';
 import {onMounted} from 'vue';
+import {useStore} from 'vuex';
 export default {
   components:{BigStar,SmallStar},
 
   setup(){
+    const store=useStore();
     let date=null;
-    if(localStorage.getItem('antibody_date')){
-      date=new Date(localStorage.getItem('antibody_date').replaceAll('/', '-').split("-").reverse().join("-")).toISOString( );
+    if(store.getters.get_antibody_date){
+      date=new Date(store.getters.get_antibody_date.replaceAll('/', '-').split("-").reverse().join("-")).toISOString( );
      }
     
     onMounted(()=>{
+      console.log(store.getters);
       const data={
-        first_name: localStorage.getItem('first_name'),
-        last_name: localStorage.getItem('last_name'),
-        email: localStorage.getItem('email'),
-        had_covid: localStorage.getItem('had_covid'),
-        had_antibody_test: localStorage.getItem('had_antibody_test')=="true"? true : false,
+        first_name: store.getters.get_first_name,
+        last_name: store.getters.get_last_name,
+        email: store.getters.get_email,
+        had_covid: store.getters.get_had_covid,
+        had_antibody_test: store.getters.get_had_antibody_test=="true"? true : false,
         antibodies:{
           test_date:date,
-          number:Number(localStorage.getItem('antibody_quantity'))
+          number:Number(store.getters.get_antibody_quantity)
         },
-        covid_date: localStorage.getItem('covid_date'),
-        had_vaccine: localStorage.getItem('had_vaccine')=="yes"? true : false,
-        vaccination_stage: localStorage.getItem('vaccination_stage'),
-        waiting: localStorage.getItem('waiting'),
-        non_formal_meetings: localStorage.getItem('non_formal_meetings'),
-        number_of_days_from_office: Number(localStorage.getItem('number_of_days_from_office')),
-        what_about_meetings_in_live: localStorage.getItem('what_about_meetings_in_live'),
-        tell_us_your_opinion_about_us: localStorage.getItem('tell_us_your_opinion_about_us'),
+        covid_date: store.getters.get_covid_date,
+        had_vaccine:store.getters.get_had_vaccine=="yes"? true : false,
+        vaccination_stage:store.getters.get_vaccination_stage,
+        waiting:store.getters.get_waiting,
+        non_formal_meetings:store.getters.get_non_formal_meetings,
+        number_of_days_from_office:Number(store.getters.get_number_of_days_from_office),
+        what_about_meetings_in_live:store.getters.get_what_about_meetings_in_live,
+        tell_us_your_opinion_about_us:store.getters.get_tell_us_your_opinion_about_us,
       }
-icons
+      console.log(data)
 
      fetch('https://covid19.devtest.ge/api/create', {
       method: 'POST',

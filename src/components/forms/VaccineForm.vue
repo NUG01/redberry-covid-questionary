@@ -43,68 +43,71 @@ import LinkText from '@/components/texts/LinkText.vue';
 import ProtocolText from '@/components/texts/ProtocolText.vue';      
 import RouteButtons from '@/components/RouteButtons.vue';    
 import { useRouter } from 'vue-router'              
+import { useStore } from 'vuex'              
 export default {
   name:"QuestionForm",
+  emits:['radio-data'],
  components:{Form,RadioCmp,LinkText,ProtocolText,ErrorMessage,RouteButtons},
   setup(){
      const router = useRouter();
+     const store = useStore();
 
      const readyToShowFirst=ref(false);
      const readyToShowSecond=ref(false);
      const linkShow=ref(false);
      const protocolShow=ref(false);
 
-
-
      function yesValue(value){
-          localStorage.removeItem("waiting");
+          store.dispatch('updateWait','');
           protocolShow.value=false;
           readyToShowSecond.value=false;
           readyToShowFirst.value=true;
-          localStorage.setItem('had_vaccine', value)
+          store.dispatch('updateVaccine', value);
         }
      function noValue(value){
-          localStorage.removeItem("vaccination_stage");
+          store.dispatch('updateStage', '');
           linkShow.value=false;
           readyToShowFirst.value=false;
           readyToShowSecond.value=true;
-          localStorage.setItem('had_vaccine', value)
+          store.dispatch('updateVaccine', value);
         }
-     
      
      
      function registered(value){
           linkShow.value=false;
-          localStorage.setItem('vaccination_stage', value)
+          store.dispatch('updateStage', value);
         }
      function vaccinated(value){
           linkShow.value=false;
-          localStorage.setItem('vaccination_stage', value)
+          store.dispatch('updateStage', value);
         }
      function dose(value){
           protocolShow.value=false;
           linkShow.value=true;
-          localStorage.setItem('vaccination_stage', value)
+          store.dispatch('updateStage', value);
         }
      
      
      
      function waiting(value){
           protocolShow.value=false;
-          localStorage.setItem('waiting', value)
+          store.dispatch('updateWait',value);
         }
      function notPlanning(value){
           protocolShow.value=false;
-          localStorage.setItem('waiting', value)
+          store.dispatch('updateWait',value);
         }
      function planning(value){
           linkShow.value=false;
           protocolShow.value=true;
-          localStorage.setItem('waiting', value)
+          store.dispatch('updateWait',value);
         }
 
 
            function onSubmit(values){
+            store.dispatch('updateVaccine', values.had_vaccine);
+            store.dispatch('updateStage', values.vaccination_stage);
+            store.dispatch('updateWait',values.waiting);
             return router.push('/advices');
            }
      

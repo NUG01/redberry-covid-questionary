@@ -21,49 +21,9 @@ export default {
         const inputType=props.type
         const inputId=props.id
 
-
-        function saveRadioOnRefresh(storageName,storageValue,elementId){
-         onMounted(()=>{
-            if(localStorage.getItem(storageName)==storageValue && document.getElementById(elementId)){
-            const elem = document.getElementById(elementId)
-            elem.click(); 
-          }
-          });
-        };
-        
-        saveRadioOnRefresh('had_vaccine','yes','vaccine1')
-        saveRadioOnRefresh('had_vaccine','no','vaccine2')
-      
-        saveRadioOnRefresh('had_antibody_test','true','anti-radio1')
-        saveRadioOnRefresh('had_antibody_test','false','anti-radio2')
-        
-        saveRadioOnRefresh('had_covid','yes','radio1')
-        saveRadioOnRefresh('had_covid','no','radio2')
-        saveRadioOnRefresh('had_covid','not_now','radio3')
-         
-        saveRadioOnRefresh('vaccination_stage','first_dose_and_registered','stage1')
-        saveRadioOnRefresh('vaccination_stage','fully_vaccinated','stage2')
-        saveRadioOnRefresh('vaccination_stage','first_dose_and_not_registered','stage3')
-
-        saveRadioOnRefresh('waiting','registered_and_waiting','wait1')
-        saveRadioOnRefresh('waiting','not_planning','wait2')
-        saveRadioOnRefresh('waiting','planning_vaccination','wait3')
-
-        saveRadioOnRefresh('non_formal_meetings','twice_a_week','meet1')
-        saveRadioOnRefresh('non_formal_meetings','once_a_week','meet2')
-        saveRadioOnRefresh('non_formal_meetings','once_two_week','meet3')
-        saveRadioOnRefresh('non_formal_meetings','once_a_month','meet4')
-        
-        saveRadioOnRefresh('number_of_days_from_office','0','day')
-        saveRadioOnRefresh('number_of_days_from_office','1','day1')
-        saveRadioOnRefresh('number_of_days_from_office','2','day2')
-        saveRadioOnRefresh('number_of_days_from_office','3','day3')
-        saveRadioOnRefresh('number_of_days_from_office','4','day4')
-        saveRadioOnRefresh('number_of_days_from_office','5','day5')
-        
-        function emitRadio(value){
-        context.emit('radio-data', value.target.value)
-        }
+function emitRadio(){
+  context.emit('radio-data')
+}
 
     return {inputName,inputType,inputId,label,emitRadio,value,rules};
   }

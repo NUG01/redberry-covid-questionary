@@ -21,14 +21,14 @@
       <div v-if="showPeriodInput">
       <p class="mb-[3rem]">თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა</p>
       <div class="flex flex-col gap-[2.5rem] ml-[2rem]">
-        <input-cmp name="antibody_date" @save-data="saveDate" type="text" placeholder="რიცხვი" onfocus="(this.type='date')"/>
-        <input-cmp name="antibody_quantity" @save-data="saveQuantity" type="number" placeholder="ანტისხეულების რაოდენობა"/>
+        <input-cmp name="antibody_date" type="text" placeholder="რიცხვი" onfocus="(this.type='date')"/>
+        <input-cmp name="antibody_quantity" type="number" placeholder="ანტისხეულების რაოდენობა"/>
       </div>
       </div>
     <div v-if="showPeriodTwoInput">
       <p class="mb-[3rem]">მიუთითე მიახლოებითი პერიოდი<br>(დღე/თვე/წელი) როდის გქონდა Covid-19*</p>
       <div class="flex flex-col gap-[1rem] ml-[2rem]">
-        <input-cmp name="covid_date" @save-data="covidDate" rules="required" type="text" placeholder="დდ/თთ/წწ" onfocus="(this.type='date')"/>
+        <input-cmp name="covid_date" rules="required" type="text" placeholder="დდ/თთ/წწ" onfocus="(this.type='date')"/>
       </div>
       </div>
       </div>
@@ -43,6 +43,7 @@ import RadioCmp from '@/components/inputs/RadioButton.vue';
 import InputCmp from '@/components/inputs/BasicInput.vue'; 
 import RouteButtons from '@/components/RouteButtons.vue';    
 import { ref } from 'vue';
+import { useStore } from 'vuex';
 import { useRouter } from 'vue-router'
 export default {
   emits:["radio-data","save-data"],
@@ -50,6 +51,7 @@ export default {
  components:{Form,Field,RadioCmp,InputCmp,ErrorMessage, RouteButtons},
   setup(){
     const router = useRouter();
+    const store = useStore();
 
     const readyToShow=ref(false);
     const readyToShowInput=ref(false);
@@ -57,53 +59,58 @@ export default {
 
      
         function yesValue(value){
-          readyToShow.value=true;
-          localStorage.setItem('had_covid', value)
+        readyToShow.value=true;
+         store.dispatch('updateRadio', value);
         }
         function noValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
-          localStorage.removeItem("had_antibody_test");
-          localStorage.removeItem("covid_date");
-          localStorage.removeItem("antibody_date");
-          localStorage.removeItem("antibody_quantity");
-          localStorage.setItem('had_covid',value)
+          store.dispatch('updateAntiradio','');
+          store.dispatch('updateDate', '');
+          store.dispatch('updateNumberdate', '');
+          store.dispatch('updateAntibody', '');
+          store.dispatch('updateRadio', value);
         }
         function notNowValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
-          localStorage.removeItem("had_antibody_test");
-          localStorage.removeItem("covid_date");
-          localStorage.removeItem("antibody_date");
-          localStorage.removeItem("antibody_quantity");
-          localStorage.setItem('had_covid',value)
+          store.dispatch('updateAntiradio','');
+          store.dispatch('updateDate', '');
+          store.dispatch('updateNumberdate', '');
+          store.dispatch('updateAntibody', '');
+          store.dispatch('updateRadio', value);
         }
         function yesValueAnti(value){
           readyToShowInput.value=true;
           readyToShowTwoInput.value=false;
-          localStorage.removeItem("covid_date");
-          localStorage.setItem('had_antibody_test',value)
+          store.dispatch('updateDate', '');
+          store.dispatch('updateAntiradio',value);
         }
         function noValueAnti(value){
           readyToShowInput.value=false;
           readyToShowTwoInput.value=true;
-          localStorage.removeItem("antibody_date");
-          localStorage.removeItem("antibody_quantity");
-          localStorage.setItem('had_antibody_test',value)
+          store.dispatch('updateNumberdate', '');
+          store.dispatch('updateAntibody', '');
+          store.dispatch('updateAntiradio',value);
         }
         function saveDate(value){
-          localStorage.setItem('antibody_date', value);
+          store.dispatch('updateNumberdate', value);
         }
         function saveQuantity(value){
-          localStorage.setItem('antibody_quantity', value)
+          store.dispatch('updateAntibody', value);
         }
         function covidDate(value){
-          localStorage.setItem('covid_date', value)
+          store.dispatch('updateDate', value);
         }
 
       function onSubmit(values){
+      store.dispatch('updateRadio', values.had_covid);
+      store.dispatch('updateAntiradio',values.had_antibody_test);
+      store.dispatch('updateNumberdate', values.antibody_date);
+      store.dispatch('updateAntibody', values.antibody_quantity);
+      store.dispatch('updateDate', values.covid_date);
       return router.push('/vaccination');
   
     }

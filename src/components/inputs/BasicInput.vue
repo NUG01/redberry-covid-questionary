@@ -2,7 +2,7 @@
 
   <div class="flex flex-col w-[80%]">
     <label :for="inputName" class="text-[2.2rem] font-bold text-[#232323] mb-[1.2rem]">{{ label }}</label>
-    <Field @input="emit" :value="val" :rules="rules" :type="inputType" :onfocus="onfocus" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid text-[1.6rem]"/>
+    <Field :rules="rules" :type="inputType" :onfocus="onfocus" :name="inputName" :id="inputName" :placeholder="inputText" class="h-[5rem] pl-[2rem] border-[0.8px] border-[#232323] border-solid text-[1.6rem]"/>
   <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" :name="inputName"/>
   </div>
 
@@ -25,14 +25,7 @@ export default {
         const inputText=props.placeholder;
         const onfocus=props.onfocus;
 
-
-        function emit(value){
-          context.emit('save-data', value.target.value)
-        }
-        
-        const val = computed((value) => localStorage.getItem(inputName));
-
-    return {inputName,inputType,inputText,label,rules,emit,val,onfocus};
+    return {inputName,inputType,inputText,label,rules,onfocus};
   }
 }
 </script>
