@@ -26,7 +26,6 @@ export default {
      }
     
     onMounted(()=>{
-      console.log(store.getters);
       const data={
         first_name: store.getters.get_first_name,
         last_name: store.getters.get_last_name,
@@ -46,13 +45,12 @@ export default {
         what_about_meetings_in_live:store.getters.get_what_about_meetings_in_live,
         tell_us_your_opinion_about_us:store.getters.get_tell_us_your_opinion_about_us,
       }
-      console.log(data)
 
      fetch('https://covid19.devtest.ge/api/create', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data),
-      }).then(localStorage.clear());
+      });
 
     });
      
