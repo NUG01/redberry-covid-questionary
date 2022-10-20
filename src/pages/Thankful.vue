@@ -44,6 +44,7 @@ export default {
         tell_us_your_opinion_about_us: localStorage.getItem('tell_us_your_opinion_about_us'),
       }
 
+
      fetch('https://covid19.devtest.ge/api/create', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},

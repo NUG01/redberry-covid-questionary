@@ -21,20 +21,20 @@
       <div v-if="showPeriodInput">
       <p class="mb-[3rem]">თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა</p>
       <div class="flex flex-col gap-[2.5rem] ml-[2rem]">
-        <input-cmp name="antibody_date" @save-data="saveDate" type="text" placeholder="რიცხვი"/>
-        <input-cmp name="antibody_quantity" @save-data="saveQuantity" type="text" placeholder="ანტისხეულების რაოდენობა"/>
+        <input-cmp name="antibody_date" @save-data="saveDate" type="text" placeholder="რიცხვი" onfocus="(this.type='date')"/>
+        <input-cmp name="antibody_quantity" @save-data="saveQuantity" type="number" placeholder="ანტისხეულების რაოდენობა"/>
       </div>
       </div>
     <div v-if="showPeriodTwoInput">
       <p class="mb-[3rem]">მიუთითე მიახლოებითი პერიოდი<br>(დღე/თვე/წელი) როდის გქონდა Covid-19*</p>
       <div class="flex flex-col gap-[1rem] ml-[2rem]">
-        <input-cmp name="covid_date" @save-data="covidDate" rules="required|covid_date" type="text" placeholder="დდ/თთ/წწ"/>
+        <input-cmp name="covid_date" @save-data="covidDate" rules="required" type="text" placeholder="დდ/თთ/წწ" onfocus="(this.type='date')"/>
       </div>
       </div>
       </div>
        <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
-   <router-link to="identification"><left-arrow></left-arrow></router-link>
-   <button type="submit"><right-arrow></right-arrow></button>
+   <router-link to="identification" class="z-50"><left-arrow></left-arrow></router-link>
+   <button type="submit" class="z-50"><right-arrow></right-arrow></button>
   </div>
     </Form>
 </template>
@@ -140,7 +140,6 @@ form{
   font-family: sans-serif;
   letter-spacing: 1px;
 }
- 
 p{
   font-size: 2.2rem;
   color:#232323;
