@@ -1,11 +1,11 @@
 export default {
   updateVaccine(context, payload){
-    context.commit('newVaccine', payload);
+    context.commit('setNewVaccine', payload);
   },
   updateStage(context, payload){
-    context.commit('newStage', payload);
+    context.commit('setNewStage', payload);
   },
   updateWait(context, payload){
-    context.commit('newWait', payload);
+    context.commit('setNewWait', payload);
   }
 };

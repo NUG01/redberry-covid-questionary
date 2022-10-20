@@ -1,11 +1,11 @@
 export default {
-  newVaccine(state,payload){
+  setNewVaccine(state,payload){
     state.had_vaccine=payload;
   },
-  newStage(state,payload){
+  setNewStage(state,payload){
     state.vaccination_stage=payload;
   },
-  newWait(state,payload){
+  setNewWait(state,payload){
     state.waiting=payload;
   }
 };

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import TheLogo from '@/components/svg/TheLogo.vue';
+import TheLogo from '@/components/icons/TheLogo.vue';
 import { ref } from "vue";
 export default {
   name:"Landing",

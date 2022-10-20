@@ -1,17 +1,17 @@
 export default {
-  had_covid(state){
+  get_had_covid(state){
     return state.had_covid;
   },
-  had_antibody_test(state){
+  get_had_antibody_test(state){
     return state.had_antibody_test;
   },
-  antibody_date(state){
+  get_antibody_date(state){
     return state.antibody_date;
   },
-  antibody_quantity(state){
+  get_antibody_quantity(state){
     return state.antibody_quantity;
   },
-  covid_date(state){
+  get_covid_date(state){
     return state.covid_date;
   }
 };

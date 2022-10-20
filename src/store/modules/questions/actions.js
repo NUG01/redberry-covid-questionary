@@ -1,17 +1,17 @@
 export default {
   updateRadio(context, payload){
-  context.commit('newRadio', payload);
+  context.commit('setNewRadio', payload);
 },
 updateAntiradio(context, payload){
-  context.commit('newAntiradio', payload);
+  context.commit('setNewAntiradio', payload);
 },
 updateNumberdate(context, payload){
-  context.commit('newNumberdate', payload);
+  context.commit('setNewNumberdate', payload);
 },
 updateAntibody(context, payload){
-  context.commit('newAntibody', payload);
+  context.commit('setNewAntibody', payload);
 },
 updateDate(context, payload){
-  context.commit('newDate', payload);
+  context.commit('setNewDate', payload);
 }
 };

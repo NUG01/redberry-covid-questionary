@@ -1,21 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LandingPage from '@/pages/Landing.vue';
-import IdentifyPage from '@/pages/Identify.vue';
-import QuestionsPage from '@/pages/Questions.vue';
-import VaccinationPage from '@/pages/Vaccination.vue';
-import AdvicesPage from '@/pages/Advices.vue';
-import ThankfulPage from '@/pages/Thankful.vue';
+import LandingPage from '@/views/Landing.vue';
+import IdentifyPage from '@/views/Identify.vue';
+import QuestionsPage from '@/views/Questions.vue';
+import VaccinationPage from '@/views/Vaccination.vue';
+import AdvicesPage from '@/views/Advices.vue';
+import ThankfulPage from '@/views/Thankful.vue';
 
 const router = createRouter({
   history : createWebHistory(),
   routes: [
     {path: '/', redirect: '/start', name:'Main'},
-    {path: '/start', component: LandingPage, name:'Landing'},
-    {path: '/identification', component: IdentifyPage, name:'Identification'},
-    {path: '/covid-questions', component: QuestionsPage, name:'Questions'},
-    {path: '/vaccination', component: VaccinationPage, name:'Vaccination'},
-    {path: '/advices', component: AdvicesPage, name:'Advices'},
-    {path: '/thanks', component: ThankfulPage, name:'Thanks'},
+    {path: '/start', component: LandingPage, name:'landing'},
+    {path: '/identification', component: IdentifyPage, name:'identification'},
+    {path: '/covid-questions', component: QuestionsPage, name:'questions'},
+    {path: '/vaccination', component: VaccinationPage, name:'vaccination'},
+    {path: '/advices', component: AdvicesPage, name:'advices'},
+    {path: '/thanks', component: ThankfulPage, name:'thanks'},
     ],
 });
 

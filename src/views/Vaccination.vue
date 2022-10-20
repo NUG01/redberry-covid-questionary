@@ -3,7 +3,7 @@
   <basic-header :number=3 :leftHide=false :rightHide=false :leftLink="'covid-questions'" :rightLink="'advices'">
 <div class="flex items-start justify-between">
     <vaccine-form></vaccine-form>
-    <img src="/src/assets/doctor2.png">
+    <img src="/src/assets/doctor.png">
     <div class="absolute bg-[rgba(201,203,106,0.72)] w-[62rem] h-[7.5rem] top-[35%] left-[50%] rectangle"></div>
   </div>
   </basic-header>

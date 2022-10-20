@@ -9,29 +9,22 @@
     <hr/>
     <p>*-ით მონიშნული ველების შევსება<br>სავალდებულოა</p>
     </div>
-    <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
-    <router-link to="/" class="hidden"><left-arrow></left-arrow></router-link>
-    <button type="submit" class="z-50"><right-arrow></right-arrow></button>
-  </div>
+   <route-buttons to="/" class="hidden"></route-buttons>
     </Form>
 </template>
 
 
 <script>
-import { Form,useField } from 'vee-validate';
-import { useStore } from 'vuex';
-import { computed,ref } from 'vue';
-import InputCmp from '@/components/inputs/Input.vue';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';
-import { useRouter } from 'vue-router'
+import { Form} from 'vee-validate';                       
+import InputCmp from '@/components/inputs/BasicInput.vue'; 
+import { useRouter } from 'vue-router';
+import RouteButtons from '@/components/RouteButtons.vue';    
 export default {
   emits:["save-data"],
   props:['emitInput'],
   name:"IdentificationForm",
- components:{Form,InputCmp,LeftArrow,RightArrow},
+ components:{Form,InputCmp,RouteButtons},
   setup(){
-    const store = useStore();
     const router = useRouter();
 
         function saveName(value){

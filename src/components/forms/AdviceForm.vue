@@ -29,11 +29,11 @@
       </div>
      <div class="flex flex-col w-[100%] gap-[1.2rem]">
       <label class="label">რას ფიქრობ ფიზიკურ შეკრებებზე?</label>
-      <textarea :value="textOne" @input="saveTextOne" class="area border-[0.8px] border-[#232323] border-solid" name="what_about_meetings_in_live"></textarea>
+      <textarea :value="firstTextareaValue" @input="saveTextOne" class="area border-[0.8px] border-[#232323] border-solid" name="what_about_meetings_in_live"></textarea>
      </div>
      <div class="flex flex-col w-[100%] gap-[1.2rem]">
       <label class="label">რას ფიქრობ არსებულ გარემოზე:<br>რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?</label>
-      <textarea :value="textTwo" @input="saveTextTwo" class="area border-[0.8px] border-[#232323] border-solid" name="tell_us_your_opinion_about_us"></textarea>
+      <textarea :value="secondTextareaValue" @input="saveTextTwo" class="area border-[0.8px] border-[#232323] border-solid" name="tell_us_your_opinion_about_us"></textarea>
      </div>
      <button type="submit" class="self-end bg-[#208298] rounded-[42px] flex items-center justify-center mt-[5.4rem] w-[18rem] h-[5.6rem]"><p class="p-[17px] button">დასრულება</p></button>
      <router-link  :to="'vaccination'" class="mt-[7.4rem] self-end"><left-arrow></left-arrow></router-link>
@@ -43,27 +43,25 @@
 
 
 <script>
-import { Form, Field, ErrorMessage } from 'vee-validate';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
+import { Form, ErrorMessage,Field } from 'vee-validate';
+import LeftArrow from '@/components/icons/LeftArrow.vue';
 import AdviceText from '@/components/texts/AdviceText.vue';
-import RadioCmp from '@/components/inputs/Radio.vue';                          
-import InputCmp from '@/components/inputs/Input.vue';                          
+import RadioCmp from '@/components/inputs/RadioButton.vue';                          
+import InputCmp from '@/components/inputs/BasicInput.vue';                          
 import { useRouter } from 'vue-router';
-import { useStore } from 'vuex'; 
 import { onMounted,ref } from 'vue'; 
 export default {
   name:"AdvicesForm",
  components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp,ErrorMessage},
   setup(){
-    const store = useStore();
     const router = useRouter();
 
-       const textOne=ref('');
-       const textTwo=ref('');
+       const firstTextareaValue=ref('');
+       const secondTextareaValue=ref('');
 
       onMounted(()=>{
-       textOne.value= localStorage.getItem('what_about_meetings_in_live');
-       textTwo.value=localStorage.getItem('tell_us_your_opinion_about_us');
+       firstTextareaValue.value= localStorage.getItem('what_about_meetings_in_live');
+       secondTextareaValue.value=localStorage.getItem('tell_us_your_opinion_about_us');
       });
 
 
@@ -93,8 +91,8 @@ export default {
       saveTextOne,
       saveTextTwo,
       onSubmit,
-      textOne,
-      textTwo
+      firstTextareaValue,
+      secondTextareaValue
     }
   }
 }

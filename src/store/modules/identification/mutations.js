@@ -1,11 +1,11 @@
 export default {
-  newName(state,payload){
+  setNewName(state,payload){
     state.first_name=payload;
   },
-  newSurname(state,payload){
+  setNewSurname(state,payload){
     state.last_name=payload;
   },
-  newEmail(state,payload){
+  setNewEmail(state,payload){
     state.email=payload;
   }
 };

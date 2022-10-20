@@ -1,11 +1,11 @@
 export default {
-  first_name(state){
+  get_first_name(state){
     return state.first_name;
   },
-  last_name(state){
+  get_last_name(state){
     return state.last_name;
   },
-  email(state){
+  get_email(state){
     return state.email;
   }
 };

@@ -1,11 +1,11 @@
 export default {
-  had_vaccine(state){
+  get_had_vaccine(state){
     return state.had_vaccine;
   },
-  vaccination_stage(state){
+  get_vaccination_stage(state){
     return state.vaccination_stage;
   },
-  waiting(state){
+  get_waiting(state){
     return state.waiting;
   }
 };

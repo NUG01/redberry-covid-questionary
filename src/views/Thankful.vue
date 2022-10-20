@@ -11,8 +11,8 @@
 
 
 <script>
-import SmallStar from '@/components/svg/SmallStar.vue';
-import BigStar from '@/components/svg/BigStar.vue';
+import SmallStar from '@/components/icons/SmallStar.vue';
+import BigStar from '@/components/icons/BigStar.vue';
 import {onMounted} from 'vue';
 export default {
   components:{BigStar,SmallStar},
@@ -43,7 +43,7 @@ export default {
         what_about_meetings_in_live: localStorage.getItem('what_about_meetings_in_live'),
         tell_us_your_opinion_about_us: localStorage.getItem('tell_us_your_opinion_about_us'),
       }
-
+icons
 
      fetch('https://covid19.devtest.ge/api/create', {
       method: 'POST',

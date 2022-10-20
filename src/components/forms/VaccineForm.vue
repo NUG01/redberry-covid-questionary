@@ -30,10 +30,7 @@
      <link-text v-if="link"></link-text>
      <protocol-text v-if="protocol"></protocol-text>
       </div>
-       <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
-   <router-link to="covid-questions" class="z-50"><left-arrow></left-arrow></router-link>
-   <button type="submit" class="z-50"><right-arrow></right-arrow></button>
-  </div>
+    <route-buttons to="covid-questions"></route-buttons>
     </Form>
 </template>
 
@@ -41,18 +38,15 @@
 <script>
 import { Form,ErrorMessage } from 'vee-validate';
 import { ref, onMounted } from 'vue';
-import RadioCmp from '@/components/inputs/Radio.vue';                              
+import RadioCmp from '@/components/inputs/RadioButton.vue';                                                     
 import LinkText from '@/components/texts/LinkText.vue';    
-import ProtocolText from '@/components/texts/ProtocolText.vue';    
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';    
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex';                  
+import ProtocolText from '@/components/texts/ProtocolText.vue';      
+import RouteButtons from '@/components/RouteButtons.vue';    
+import { useRouter } from 'vue-router'              
 export default {
   name:"QuestionForm",
- components:{Form,RadioCmp,LeftArrow,RightArrow,LinkText,ProtocolText,ErrorMessage},
+ components:{Form,RadioCmp,LinkText,ProtocolText,ErrorMessage,RouteButtons},
   setup(){
-     const store = useStore();
      const router = useRouter();
 
      const readyToShowFirst=ref(false);

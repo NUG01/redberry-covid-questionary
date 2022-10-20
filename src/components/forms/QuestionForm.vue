@@ -32,29 +32,23 @@
       </div>
       </div>
       </div>
-       <div class="flex items-center justify-center gap-[12rem] absolute bottom-0 left-[50%] -translate-x-[50%] mb-[10rem]">
-   <router-link to="identification" class="z-50"><left-arrow></left-arrow></router-link>
-   <button type="submit" class="z-50"><right-arrow></right-arrow></button>
-  </div>
+      <route-buttons to="identification"></route-buttons>
     </Form>
 </template>
 
 
 <script>
-import { Form, Field,ErrorMessage } from 'vee-validate';
-import RadioCmp from '@/components/inputs/Radio.vue'; 
-import InputCmp from '@/components/inputs/Input.vue';
-import LeftArrow from '@/components/svg/LeftArrow.vue';
-import RightArrow from '@/components/svg/RightArrow.vue';
+import { Form,ErrorMessage,Field } from 'vee-validate';
+import RadioCmp from '@/components/inputs/RadioButton.vue';                          
+import InputCmp from '@/components/inputs/BasicInput.vue'; 
+import RouteButtons from '@/components/RouteButtons.vue';    
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex';
 export default {
   emits:["radio-data","save-data"],
   name:"QuestionForm",
- components:{Form,Field,RadioCmp,InputCmp,LeftArrow,RightArrow, ErrorMessage},
+ components:{Form,Field,RadioCmp,InputCmp,ErrorMessage, RouteButtons},
   setup(){
-    const store = useStore();
     const router = useRouter();
 
     const readyToShow=ref(false);
@@ -89,7 +83,7 @@ export default {
         function yesValueAnti(value){
           readyToShowInput.value=true;
           readyToShowTwoInput.value=false;
-           localStorage.removeItem("covid_date");
+          localStorage.removeItem("covid_date");
           localStorage.setItem('had_antibody_test',value)
         }
         function noValueAnti(value){

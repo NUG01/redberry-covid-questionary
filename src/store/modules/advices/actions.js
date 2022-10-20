@@ -1,14 +1,14 @@
 export default {
   updateMeetings(context, payload){
-    context.commit('newMeetings', payload);
+    context.commit('setNewMeetings', payload);
   },
   updateOffice(context, payload){
-    context.commit('newOffice', payload);
+    context.commit('setNewOffice', payload);
   },
   updateLiveMeetings(context, payload){
-    context.commit('newLiveMeetings', payload);
+    context.commit('setNewLiveMeetings', payload);
   },
   updateOpinion(context, payload){
-    context.commit('newOpinion', payload);
+    context.commit('setNewOpinion', payload);
   }
 };

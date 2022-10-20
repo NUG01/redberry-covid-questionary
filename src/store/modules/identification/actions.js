@@ -1,11 +1,11 @@
 export default {
   updateName(context, payload){
-    context.commit('newName', payload);
+    context.commit('setNewName', payload);
   },
   updateSurname(context, payload){
-    context.commit('newSurname', payload);
+    context.commit('setNewSurname', payload);
   },
   updateEmail(context, payload){
-    context.commit('newEmail', payload);
+    context.commit('setNewEmail', payload);
   }
 };

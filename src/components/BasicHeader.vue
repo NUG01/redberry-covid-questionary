@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import RedberryLogo from '@/components/svg/RedberryLogo.vue';
+import RedberryLogo from '@/components/icons/RedberryLogo.vue';
 export default {
   name:"BasicHeader",
   components:{RedberryLogo},
