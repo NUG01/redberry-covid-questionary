@@ -6,21 +6,21 @@
      <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">რა სიხშირით შეიძლება გვქონდეს საერთო<br>არაფორმალური ონლაინ შეხვედრები, სადაც ყველა<br>სურვილისამებრ ჩაერთვება?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-cmp type="radio" value="once_a_week" rules="required" id="meet2" name="non_formal_meetings" label="კვირაში ერთხელ"/>
-        <radio-cmp type="radio" value="once_two_week" rules="required" id="meet3" name="non_formal_meetings" label="ორ კვირაში ერთხელ"/>
-        <radio-cmp type="radio" value="once_a_month" rules="required" id="meet4" name="non_formal_meetings" label="თვეში ერთხელ"/>
+        <radio-button type="radio" value="once_a_week" rules="required" id="meet2" name="non_formal_meetings" label="კვირაში ერთხელ"/>
+        <radio-button type="radio" value="once_two_week" rules="required" id="meet3" name="non_formal_meetings" label="ორ კვირაში ერთხელ"/>
+        <radio-button type="radio" value="once_a_month" rules="required" id="meet4" name="non_formal_meetings" label="თვეში ერთხელ"/>
          <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="non_formal_meetings"/>
       </div>
       </div>
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">კვირაში რამდენი დღე ისურვებდით ოფისიდან მუშაობას?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-         <radio-cmp type="radio" value="0" rules="required" id="day" name="number_of_days_from_office" label="0"/>
-         <radio-cmp type="radio" value="1" rules="required" id="day1" name="number_of_days_from_office" label="1"/>
-         <radio-cmp type="radio" value="2" rules="required" id="day2" name="number_of_days_from_office" label="2"/>
-         <radio-cmp type="radio" value="3" rules="required" id="day3" name="number_of_days_from_office" label="3"/>
-         <radio-cmp type="radio" value="4" rules="required" id="day4" name="number_of_days_from_office" label="4"/>
-         <radio-cmp type="radio" value="5" rules="required" id="day5" name="number_of_days_from_office" label="5"/>
+         <radio-button type="radio" value="0" rules="required" id="day" name="number_of_days_from_office" label="0"/>
+         <radio-button type="radio" value="1" rules="required" id="day1" name="number_of_days_from_office" label="1"/>
+         <radio-button type="radio" value="2" rules="required" id="day2" name="number_of_days_from_office" label="2"/>
+         <radio-button type="radio" value="3" rules="required" id="day3" name="number_of_days_from_office" label="3"/>
+         <radio-button type="radio" value="4" rules="required" id="day4" name="number_of_days_from_office" label="4"/>
+         <radio-button type="radio" value="5" rules="required" id="day5" name="number_of_days_from_office" label="5"/>
           <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="number_of_days_from_office"/>
       </div>
       </div>
@@ -45,14 +45,13 @@
 import { Form, ErrorMessage,Field } from 'vee-validate';
 import LeftArrow from '@/components/icons/LeftArrow.vue';
 import AdviceText from '@/components/texts/AdviceText.vue';
-import RadioCmp from '@/components/inputs/RadioButton.vue';                          
-import InputCmp from '@/components/inputs/BasicInput.vue';                          
+import RadioButton from '@/components/inputs/RadioButton.vue';                                                
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import {ref } from 'vue'; 
 export default {
   name:"AdvicesForm",
- components:{Form,Field,LeftArrow, AdviceText, RadioCmp,InputCmp,ErrorMessage},
+ components:{Form,Field,LeftArrow, AdviceText, RadioButton,ErrorMessage},
   setup(){
     const router = useRouter();
     const store=useStore();

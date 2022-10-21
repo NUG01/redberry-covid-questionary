@@ -9,7 +9,7 @@ import ThankfulPage from '@/views/Thankful.vue';
 const router = createRouter({
   history : createWebHistory(),
   routes: [
-    {path: '/', redirect: '/start', name:'Main'},
+    {path: '/', redirect: '/start', name:'main'},
     {path: '/start', component: LandingPage, name:'landing'},
     {path: '/identification', component: IdentifyPage, name:'identification'},
     {path: '/covid-questions', component: QuestionsPage, name:'questions'},
