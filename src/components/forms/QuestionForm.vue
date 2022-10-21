@@ -4,17 +4,17 @@
       <div class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">გაქვს გადატანილი Covid-19?*</p>
       <div class="flex flex-col gap-[1.1rem]" rules="required">
-        <radio-button @radio-data="yesValue" rules="required" value="yes" type="radio" id="radio1" name="had_covid" label="კი"/>
-        <radio-button @radio-data="noValue" rules="required" value="no" type="radio" id="radio2" name="had_covid" label="არა"/>
-        <radio-button @radio-data="notNowValue" rules="required" value="not_now" type="radio" id="radio3" name="had_covid" label="ახლა მაქვს"/>
+        <radio-input @radio-data="setHadCovidValue" rules="required" value="yes" type="radio" id="radio1" name="had_covid" label="კი"/>
+        <radio-input @radio-data="setHadntCovidValue" rules="required" value="no" type="radio" id="radio2" name="had_covid" label="არა"/>
+        <radio-input @radio-data="setNotHavingCovidValue" rules="required" value="not_now" type="radio" id="radio3" name="had_covid" label="ახლა მაქვს"/>
        <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="had_covid"/>
        </div>
       </div>
      <div v-if="showSecondRadio" class="flex flex-col gap-[8px]">
       <p class="mb-[1.3rem]">ანტისხეულების ტესტი გაქვს გაკეთებული?*</p>
       <div class="flex flex-col gap-[1.1rem]">
-        <radio-button type="radio" rules="required" @radio-data="yesValueAnti" value="true" id="anti-radio1" name="had_antibody_test" label="კი"/>
-        <radio-button type="radio" rules="required" @radio-data="noValueAnti" value="false" id="anti-radio2" name="had_antibody_test" label="არა"/>
+        <radio-input type="radio" rules="required" @radio-data="setAntibodyValue" value="true" id="anti-radio1" name="had_antibody_test" label="კი"/>
+        <radio-input type="radio" rules="required" @radio-data="setNotAntibodyValue" value="false" id="anti-radio2" name="had_antibody_test" label="არა"/>
       <ErrorMessage style="color:#F15524;font-size:16px;margin-left:2rem" name="had_antibody_test"/>
       </div>
       </div>
@@ -39,7 +39,7 @@
 
 <script>
 import { Form,ErrorMessage,Field } from 'vee-validate';
-import RadioButton from '@/components/inputs/RadioButton.vue';                         
+import RadioInput from '@/components/inputs/RadioInput.vue';                         
 import BasicInput from '@/components/inputs/BasicInput.vue'; 
 import RouteButtons from '@/components/RouteButtons.vue';    
 import { ref } from 'vue';
@@ -48,7 +48,7 @@ import { useRouter } from 'vue-router'
 export default {
   emits:["radio-data","save-data"],
   name:"QuestionForm",
- components:{Form,Field,RadioButton,BasicInput,ErrorMessage, RouteButtons},
+ components:{Form,Field,RadioInput,BasicInput,ErrorMessage, RouteButtons},
   setup(){
     const router = useRouter();
     const store = useStore();
@@ -58,11 +58,10 @@ export default {
     const readyToShowTwoInput=ref(false);
 
      
-        function yesValue(value){
+        function setHadCovidValue(value){
         readyToShow.value=true;
-         store.dispatch('updateRadio', value);
         }
-        function noValue(value){
+        function setHadntCovidValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
@@ -70,9 +69,8 @@ export default {
           store.dispatch('updateDate', '');
           store.dispatch('updateNumberdate', '');
           store.dispatch('updateAntibody', '');
-          store.dispatch('updateRadio', value);
         }
-        function notNowValue(value){
+        function setNotHavingCovidValue(value){
           readyToShow.value=false;
           readyToShowInput.value=false;
           readyToShowTwoInput.value=false;
@@ -80,29 +78,17 @@ export default {
           store.dispatch('updateDate', '');
           store.dispatch('updateNumberdate', '');
           store.dispatch('updateAntibody', '');
-          store.dispatch('updateRadio', value);
         }
-        function yesValueAnti(value){
+        function setAntibodyValue(value){
           readyToShowInput.value=true;
           readyToShowTwoInput.value=false;
           store.dispatch('updateDate', '');
-          store.dispatch('updateAntiradio',value);
         }
-        function noValueAnti(value){
+        function setNotAntibodyValue(value){
           readyToShowInput.value=false;
           readyToShowTwoInput.value=true;
           store.dispatch('updateNumberdate', '');
           store.dispatch('updateAntibody', '');
-          store.dispatch('updateAntiradio',value);
-        }
-        function saveDate(value){
-          store.dispatch('updateNumberdate', value);
-        }
-        function saveQuantity(value){
-          store.dispatch('updateAntibody', value);
-        }
-        function covidDate(value){
-          store.dispatch('updateDate', value);
         }
 
       function onSubmit(values){
@@ -116,17 +102,14 @@ export default {
     }
 
       return {
-        yesValue,
-        notNowValue,
-        noValue, 
+        setHadCovidValue,
+        setNotHavingCovidValue,
+        setHadntCovidValue, 
         showSecondRadio:readyToShow,
         showPeriodInput:readyToShowInput,
         showPeriodTwoInput:readyToShowTwoInput,
-        noValueAnti, 
-        yesValueAnti,
-        saveDate,
-        saveQuantity,
-        covidDate,
+        setNotAntibodyValue, 
+        setAntibodyValue,
         onSubmit
         }
 
