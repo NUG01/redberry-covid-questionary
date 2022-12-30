@@ -15,7 +15,7 @@ import { computed} from 'vue';
 export default {
   props: ['name','type','placeholder','label', 'rules','onfocus'],
   components:{Field, ErrorMessage},
-  setup(props,context){
+  setup(props){
 
 
         const rules=props.rules;
